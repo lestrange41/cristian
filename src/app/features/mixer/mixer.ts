@@ -28,6 +28,9 @@ export class MixerComponent {
   secretUnlocked = signal(false);
   secretValue = 50;
 
+  private faderCtx: AudioContext | null = null;
+  private lastFaderTime = 0;
+
   channels: Channel[] = [
     {
       id: 'voz', label: 'Veu', emoji: '🎙️', value: 75,
@@ -83,6 +86,39 @@ export class MixerComponent {
       this.secretUnlocked.set(true);
       this.toast.show('🔓 Canal secret desbloquejat: HUMOR. Usa\'l amb responsabilitat.');
     }
+
+    this.playFaderSound(ch.value);
+  }
+
+  private playFaderSound(value: number) {
+    const now = Date.now();
+    if (now - this.lastFaderTime < 55) return; // màx ~18 sons/s
+    this.lastFaderTime = now;
+
+    try {
+      if (!this.faderCtx || this.faderCtx.state === 'closed') {
+        this.faderCtx = new AudioContext();
+      }
+      const ctx = this.faderCtx;
+      const t = ctx.currentTime;
+
+      // Mapatge logarítmic: valor 0 → 80 Hz (greu), valor 100 → 1600 Hz (agut)
+      const freq = 80 * Math.pow(20, value / 100);
+
+      const osc = ctx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.value = freq;
+
+      const gain = ctx.createGain();
+      gain.gain.setValueAtTime(0, t);
+      gain.gain.linearRampToValueAtTime(0.22, t + 0.006); // atac ràpid
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.13); // decay curt
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(t);
+      osc.stop(t + 0.14);
+    } catch (_) { /* AudioContext no disponible */ }
   }
 
   onSecretSlider() {
