@@ -7,8 +7,7 @@
   position: relative;
   padding: 6rem 2rem 4rem;
   background: radial-gradient(ellipse at 50% 30%, rgba(0,255,136,0.06) 0%, transparent 70%),
-              radial-gradient(ellipse at 80% 80%, rgba(255,153,0,0.04) 0%, transparent 60%),
-              var(--color-bg);
+              radial-gradient(ellipse at 80% 80%, rgba(255,153,0,0.04) 0%, transparent 60%);
   text-align: center;
 }
 .hero-content {

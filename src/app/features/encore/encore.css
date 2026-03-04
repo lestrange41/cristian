@@ -6,8 +6,7 @@
   position: relative;
   padding: 6rem 2rem;
   background: radial-gradient(ellipse at 50% 60%, rgba(255,153,0,0.07), transparent 70%),
-              radial-gradient(ellipse at 20% 20%, rgba(0,255,136,0.04), transparent 50%),
-              var(--color-bg);
+              radial-gradient(ellipse at 20% 20%, rgba(0,255,136,0.04), transparent 50%);
 }
 .encore-content {
   position: relative;

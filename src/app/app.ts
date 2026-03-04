@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { WaveformComponent } from './shared/waveform/waveform';
 import { NavbarComponent } from './core/navbar/navbar';
 import { HomeComponent } from './features/home/home';
 import { TimelineComponent } from './features/timeline/timeline';
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [
     IntroComponent,
+    WaveformComponent,
     NavbarComponent,
     HomeComponent,
     TimelineComponent,
