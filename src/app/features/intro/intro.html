@@ -22,6 +22,22 @@
     </div>
   }
 
+  <!-- ── ON POWER: animació d'encesa ── -->
+  @if (state() === 'on-power') {
+    <div class="on-power-wrap">
+      <div class="aura-container">
+        <div class="aura-ring aura-ring-1"></div>
+        <div class="aura-ring aura-ring-2"></div>
+        <div class="aura-ring aura-ring-3"></div>
+        <div class="aura-ring aura-ring-4"></div>
+        <div class="aura-core">
+          <span class="aura-symbol">⏻</span>
+        </div>
+      </div>
+      <p class="on-power-label font-mono">▶ SISTEMA ACTIVAT</p>
+    </div>
+  }
+
   <!-- ── CLIP: efecte de saturació ── -->
   @if (state() === 'off-clip') {
     <div class="intro-clip">

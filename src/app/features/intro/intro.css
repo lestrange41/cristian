@@ -129,6 +129,102 @@
 }
 
 /* ═══════════════════════════════════════
+   ON-POWER STATE — anells de sonar
+═══════════════════════════════════════ */
+.on-power-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.aura-container {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Anells expansius (sonar) */
+.aura-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid #00ff88;
+  width: 170px;
+  height: 170px;
+  animation: ring-sonar 1.4s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+}
+.aura-ring-1 { animation-delay: 0s; }
+.aura-ring-2 { animation-delay: 0.2s; }
+.aura-ring-3 { animation-delay: 0.4s; }
+.aura-ring-4 { animation-delay: 0.6s; }
+
+@keyframes ring-sonar {
+  0%   { transform: scale(1);   opacity: 0.9; }
+  100% { transform: scale(4.5); opacity: 0; }
+}
+
+/* Nucli central */
+.aura-core {
+  position: relative;
+  z-index: 2;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: core-burst 0.4s ease-out forwards;
+}
+
+@keyframes core-burst {
+  0%   { box-shadow: 0 0 0px rgba(0,255,136,0);
+         background: transparent; }
+  40%  { box-shadow: 0 0 80px rgba(0,255,136,0.9),
+                     0 0 160px rgba(0,255,136,0.4),
+                     inset 0 0 40px rgba(0,255,136,0.2);
+         background: radial-gradient(circle, rgba(0,255,136,0.15) 0%, transparent 70%); }
+  100% { box-shadow: 0 0 40px rgba(0,255,136,0.5),
+                     0 0 90px rgba(0,255,136,0.2),
+                     inset 0 0 20px rgba(0,255,136,0.1);
+         background: radial-gradient(circle, rgba(0,255,136,0.08) 0%, transparent 70%); }
+}
+
+.aura-symbol {
+  font-size: 4.5rem;
+  color: #00ff88;
+  text-shadow:
+    0 0 10px rgba(0,255,136,1),
+    0 0 30px rgba(0,255,136,0.8),
+    0 0 60px rgba(0,255,136,0.4);
+  animation: symbol-on 0.3s ease-out forwards;
+}
+
+@keyframes symbol-on {
+  0%   { transform: scale(0.8); opacity: 0.5; }
+  60%  { transform: scale(1.2); }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+.on-power-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.35em;
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0,255,136,0.5);
+  margin: 0;
+  animation: label-in 0.4s 0.3s ease-out both;
+}
+
+@keyframes label-in {
+  0%   { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════
    CLIP STATE — fons vermell parpellejant
 ═══════════════════════════════════════ */
 .intro-overlay[data-state="off-clip"] {
