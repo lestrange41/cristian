@@ -1,0 +1,88 @@
+<section id="mixer" class="section-full mixer-bg">
+  <div class="section">
+    <div class="section-label">🎛️Midas M32 Live</div>
+    <h2 class="section-title">El Mesclador de la Vida</h2>
+    <p class="section-subtitle">
+      Tots en tenim un. El del Cristian porta 40 anys sense manual d'instruccions.
+      <br><em class="font-mono" style="font-size:0.8rem">Mou els sliders. Sota el teu risc.</em>
+    </p>
+
+    <!-- Mixer console -->
+    <div class="mixer-console" [class.overload]="isOverload()">
+      <!-- Overload banner -->
+      <div class="overload-banner" *ngIf="isOverload()">
+        🔴 ALERTA: El sistema explotarà de tant Cristian. Deixa anar els sliders.
+      </div>
+
+      <!-- Silence banner -->
+      <div class="silence-banner" *ngIf="isSilence()">
+        ⬛ Error crític: Silenci no trobat. Reiniciant el Cristian...
+      </div>
+
+      <!-- VU Meter decoratiu -->
+      <div class="vu-meter-decorator">
+        <app-vu-meter [barCount]="20" orientation="vertical"></app-vu-meter>
+      </div>
+
+      <!-- Channels -->
+      <div class="channels-row">
+        <div class="channel" *ngFor="let ch of channels">
+          <!-- Value display -->
+          <div class="channel-val font-mono" [ngClass]="levelClass(ch.value)">
+            {{ ch.value }}
+          </div>
+
+          <!-- Slider vertical -->
+          <div class="slider-wrap">
+            <input type="range" class="slider-v" min="0" max="100" [(ngModel)]="ch.value" (input)="onSliderChange(ch)"
+              orient="vertical" />
+          </div>
+
+          <!-- Channel label -->
+          <div class="channel-label">
+            <div class="ch-emoji">{{ ch.emoji }}</div>
+            <div class="ch-name font-mono">{{ ch.label }}</div>
+          </div>
+        </div>
+
+        <!-- Secret channel (unlockable) -->
+        <div class="channel secret-channel" *ngIf="secretUnlocked()" [class.hidden-ch]="!secretUnlocked()">
+          <div class="channel-val font-mono" style="color: #ff9900">{{ secretValue }}</div>
+          <div class="slider-wrap">
+            <input type="range" class="slider-v" min="0" max="100" [(ngModel)]="secretValue" (input)="onSecretSlider()"
+              orient="vertical" />
+          </div>
+          <div class="channel-label">
+            <div class="ch-emoji">🤣</div>
+            <div class="ch-name font-mono">HUMOR</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message display -->
+      <div class="msg-display" *ngIf="currentMsg()">
+        <span class="font-mono" style="font-size: 0.85rem; color: #00ff88">
+          {{ currentMsg() }}
+        </span>
+      </div>
+
+      <!-- Master section -->
+      <div class="master-section">
+        <div class="master-label font-mono">SORTIDA MASTER</div>
+        <div class="master-bar">
+          <div class="master-fill" [style.width.%]="masterLevel()" [ngClass]="masterClass()"></div>
+        </div>
+        <div class="master-val font-mono" [ngClass]="masterClass()">
+          {{ masterLevel().toFixed(0) }} dB
+        </div>
+      </div>
+
+      <!-- Console footer -->
+      <div class="console-footer font-mono">
+        <span>CRISTIAN PRO 4.0</span>
+        <span [class]="'status-dot ' + (isOverload() ? 'red' : isSilence() ? 'yellow' : 'green')">●</span>
+        <span>{{ isOverload() ? 'CLIP' : isSilence() ? 'SILENCI' : 'SENYAL OK' }}</span>
+      </div>
+    </div>
+  </div>
+</section>

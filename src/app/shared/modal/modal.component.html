@@ -1,0 +1,27 @@
+@if (modalService.isOpen()) {
+  <div class="modal-overlay" (click)="onOverlayClick($event)">
+    <div
+      class="modal-container"
+      [ngClass]="'border-' + modalService.currentData()?.eventColor"
+      (click)="$event.stopPropagation()">
+
+      <!-- Header -->
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <h2>{{ modalService.currentData()?.eventTitle }}</h2>
+          <div class="modal-year font-mono">{{ modalService.currentData()?.eventYear }}</div>
+        </div>
+        <button class="modal-close" (click)="close()" aria-label="Tancar">×</button>
+      </div>
+
+      <!-- Body with Carousel -->
+      <div class="modal-body">
+        <app-carousel
+          [photos]="modalService.currentData()?.photos || []"
+          [color]="modalService.currentData()?.eventColor || 'signal'"
+          [autoplayInterval]="6000">
+        </app-carousel>
+      </div>
+    </div>
+  </div>
+}

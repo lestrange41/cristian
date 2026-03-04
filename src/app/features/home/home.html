@@ -1,0 +1,54 @@
+<section id="home" class="hero section-full">
+  <app-waveform />
+
+  <div class="hero-content">
+    <!-- Label -->
+    <div class="section-label">🔴 EN DIRECTE · SOUNDCHECK OK · SENYAL ACTIU</div>
+
+    <!-- Title -->
+    <h1 class="hero-title">
+      <span class="title-line-1">Cristian</span>
+      <span class="title-line-2">4<span class="dot">.</span>0</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-subtitle">
+      Quaranta anys de senyal sense pèrdua de qualitat.
+    </p>
+
+    <p class="hero-mono">
+      <span class="blink">█</span>
+      proves de so - ok · nivells en verd · a punt pel directe
+    </p>
+
+    <!-- VU meters -->
+    <div class="vu-row">
+      <div class="vu-wrap" *ngFor="let v of vuMeters">
+        <app-vu-meter [mode]="'db-meter'" />
+        <span class="vu-label font-mono">{{ v }}</span>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="hero-cta">
+      <button class="btn btn-primary cta-btn" (click)="onPlay()">
+        🔊 Fes clic al Play
+      </button>
+      <button class="btn btn-outline" (click)="onMute()">
+        🔇 Silenciar (no funciona)
+      </button>
+    </div>
+
+    <!-- Gag -->
+    <div class="hero-gag font-mono" *ngIf="gagVisible">
+      <span class="text-clip">⚠️ ADVERTIMENT:</span> El sistema ha intentat activar el mode silenci, però l'ha rebutjat
+      automàticament. El Cristian no entén aquest concepte.
+    </div>
+  </div>
+
+  <!-- Bottom scroll indicator -->
+  <div class="scroll-hint">
+    <span class="font-mono text-muted">scroll per reproduir</span>
+    <div class="scroll-arrow">↓</div>
+  </div>
+</section>

@@ -1,0 +1,29 @@
+<app-navbar />
+
+<main class="page-wrapper">
+  <app-home />
+  <div class="divider"></div>
+  <app-timeline />
+  <div class="divider"></div>
+  <app-mixer />
+  <div class="divider"></div>
+  <app-mensajes />
+  <div class="divider"></div>
+  <app-encore />
+</main>
+
+<!-- Global Toast Container -->
+<div class="toast-container">
+  <div
+    class="toast"
+    *ngFor="let t of toastService.toasts()"
+    (click)="toastService.dismiss(t.id)">
+    {{ t.message }}
+  </div>
+</div>
+
+<!-- Global Modal -->
+<app-modal />
+
+<!-- Video Modal -->
+<app-video-modal />

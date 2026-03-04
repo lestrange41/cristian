@@ -1,0 +1,21 @@
+@if (videoModalService.isOpen()) {
+  <div class="video-modal-overlay" (click)="onOverlayClick($event)">
+    <div class="video-modal-container" (click)="$event.stopPropagation()">
+      <!-- Header -->
+      <div class="video-modal-header">
+        <h2>{{ videoModalService.currentData()?.title }}</h2>
+        <button class="video-modal-close" (click)="close()" aria-label="Tancar">×</button>
+      </div>
+
+      <!-- Video -->
+      <div class="video-modal-body">
+        <iframe
+          [src]="getYoutubeUrl()"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+}

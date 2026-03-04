@@ -1,0 +1,46 @@
+<section id="timeline" class="section-full timeline-bg">
+  <div class="section">
+    <div class="section-label">📼 REPRODUINT HISTORIAL</div>
+    <h2 class="section-title">L’àlbum d’en Cristian</h2>
+    <p class="section-subtitle">
+      Quaranta anys de gravació contínua. Sense interrupcions. Sense silenci.<br>
+      <span class="font-mono" style="font-size:0.8rem; color: rgba(240,240,248,0.35);">(Excepte aquella vegada que casi
+        baixes del cotxe per matar a algú, gràcies al teu nebot preferit no ets a la presó.)</span>
+    </p>
+
+    <div class="timeline-track">
+      <!-- Vertical line -->
+      <div class="track-line"></div>
+
+      <div class="timeline-item" *ngFor="let event of events; let i = index" [class.right]="i % 2 === 0"
+        [class.left]="i % 2 !== 0">
+
+        <!-- Dot -->
+        <div class="track-dot" [ngClass]="'dot-' + event.color">
+          <span>{{ event.emoji }}</span>
+        </div>
+
+        <!-- Card -->
+        <div class="event-card" (click)="toggle(event)">
+          <div class="event-header">
+            <div class="event-tag font-mono" [ngClass]="'tag-' + event.color">{{ event.tag }}</div>
+          </div>
+          <h3 class="event-title">{{ event.title }}</h3>
+          <p class="event-desc">{{ event.description }}</p>
+
+          <div class="event-extra" *ngIf="event.expanded">
+            <div class="media-placeholder">
+              <span class="font-mono" style="font-size: 0.75rem; color: rgba(240,240,248,0.35);">
+                📷 [Espai per a foto o vídeo]
+              </span>
+            </div>
+          </div>
+
+          <button class="expand-btn font-mono">
+            {{ event.expanded ? '▲ tancar' : '▼ veure més' }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

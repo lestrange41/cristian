@@ -1,0 +1,13 @@
+    <div class="vu-meter" [class.horizontal]="orientation === 'horizontal'" *ngIf="mode === 'bars'">
+      <div class="bar-group" *ngFor="let bar of bars; let i = index">
+        <div class="bar" [style.height.%]="bar.height" [class]="bar.color"></div>
+      </div>
+    </div>
+
+    <div class="db-meter" *ngIf="mode === 'db-meter'">
+      <div class="db-segment" *ngFor="let seg of dbSegments; let i = index"
+           [class.active]="seg.active"
+           [class]="seg.color">
+        <div class="led"></div>
+      </div>
+    </div>

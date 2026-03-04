@@ -1,0 +1,27 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <!-- Progress bar -->
+  <div class="scroll-progress" [style.width.%]="scrollProgress()"></div>
+
+  <div class="navbar-inner">
+    <!-- Logo -->
+    <button class="logo" (click)="onLogoClick()" aria-label="Inici">
+      <span class="logo-main">CRISTIAN</span><span class="logo-accent">4.0</span>
+      <app-vu-meter [barCount]="4" class="logo-vu"></app-vu-meter>
+    </button>
+
+    <!-- Desktop links -->
+    <ul class="nav-links" [class.open]="menuOpen()">
+      <li *ngFor="let link of links">
+        <a [href]="link.anchor" class="nav-link" (click)="closeMenu()">
+          <span class="link-icon">{{ link.icon }}</span>
+          <span>{{ link.label }}</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Hamburger -->
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>

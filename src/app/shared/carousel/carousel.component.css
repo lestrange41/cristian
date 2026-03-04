@@ -1,0 +1,165 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+}
+
+/* Slides wrapper */
+.carousel-slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+/* Placeholder (emoji o color) */
+.slide-placeholder {
+  font-size: clamp(5rem, 12vw, 8rem);
+  line-height: 1;
+  animation: float 3s ease-in-out infinite;
+  user-select: none;
+}
+
+/* Real image */
+.slide-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.slide-caption {
+  margin-top: 2rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* Controls */
+.carousel-controls {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: rgba(18, 18, 30, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Botones prev/next */
+.carousel-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-signal);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+  padding: 0;
+}
+
+.carousel-btn:hover {
+  border-color: var(--color-signal);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+  transform: scale(1.05);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+/* Dots indicadores */
+.carousel-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(240, 240, 248, 0.2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.carousel-dot.active {
+  background: var(--color-signal);
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+  width: 10px;
+  height: 10px;
+}
+
+.carousel-dot:hover {
+  background: rgba(240, 240, 248, 0.4);
+}
+
+/* Botón play/pause */
+.carousel-play {
+  font-size: 1rem;
+  background: none;
+  border: none;
+  color: var(--color-signal);
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity var(--transition-fast);
+  padding: 0.25rem 0.5rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.carousel-play:hover {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .carousel-slide {
+    padding: 2rem 1rem;
+  }
+
+  .slide-placeholder {
+    font-size: clamp(4rem, 15vw, 6rem);
+  }
+
+  .carousel-controls {
+    bottom: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+  }
+}
