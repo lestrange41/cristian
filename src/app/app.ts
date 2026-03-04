@@ -5,6 +5,7 @@ import { TimelineComponent } from './features/timeline/timeline';
 import { MixerComponent } from './features/mixer/mixer';
 import { MensajesComponent } from './features/mensajes/mensajes';
 import { EncoreComponent } from './features/encore/encore';
+import { IntroComponent } from './features/intro/intro';
 import { ModalComponent } from './shared/modal/modal.component';
 import { VideoModalComponent } from './shared/video-modal/video-modal.component';
 import { NgFor } from '@angular/common';
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-root',
   standalone: true,
   imports: [
+    IntroComponent,
     NavbarComponent,
     HomeComponent,
     TimelineComponent,
