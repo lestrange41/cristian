@@ -2,68 +2,70 @@
 
   <!-- ── IDLE: botó d'encesa ── -->
   @if (state() === 'idle') {
-    <div class="intro-idle">
-      <p class="intro-label font-mono">◼ CRISTIAN 4.0 · SISTEMA EN ESPERA ◼</p>
+  <div class="intro-idle">
+    <p class="intro-label font-mono">◼ CRISTIAN 4.0 · SISTEMA EN ESPERA ◼</p>
 
-      <div class="power-ring">
-        <span class="power-symbol">⏻</span>
-      </div>
+    <!-- <div class="power-ring">
+      <span class="power-symbol">⏻</span>
+    </div> -->
 
-      <div class="power-actions">
-        <button class="pwr-btn pwr-off font-mono" (click)="onOff()">
-          ⏻ OFF
-        </button>
-        <button class="pwr-btn pwr-on font-mono" (click)="onOn()">
-          ⏻ ON
-        </button>
-      </div>
+    <div class="power-actions">
+      <button class="rocker-btn rocker-off" (click)="onOff()">
+        <span class="rocker-sym">OFF</span>
 
-      <p class="intro-hint font-mono">· SELECCIONA MODE D'INICI ·</p>
+      </button>
+      <button class="rocker-btn rocker-on" (click)="onOn()">
+        <span class="rocker-sym">IN</span>
+
+      </button>
     </div>
+
+    <p class="intro-hint font-mono">· SELECCIONA MODE D'INICI ·</p>
+  </div>
   }
 
   <!-- ── ON POWER: animació d'encesa ── -->
   @if (state() === 'on-power') {
-    <div class="on-power-wrap">
-      <div class="aura-container">
-        <div class="aura-ring aura-ring-1"></div>
-        <div class="aura-ring aura-ring-2"></div>
-        <div class="aura-ring aura-ring-3"></div>
-        <div class="aura-ring aura-ring-4"></div>
-        <div class="aura-core">
-          <span class="aura-symbol">⏻</span>
-        </div>
+  <div class="on-power-wrap">
+    <div class="aura-container">
+      <div class="aura-ring aura-ring-1"></div>
+      <div class="aura-ring aura-ring-2"></div>
+      <div class="aura-ring aura-ring-3"></div>
+      <div class="aura-ring aura-ring-4"></div>
+      <div class="aura-core">
+        <span class="aura-symbol">⏻</span>
       </div>
-      <p class="on-power-label font-mono">▶ SISTEMA ACTIVAT</p>
     </div>
+    <p class="on-power-label font-mono">▶ SISTEMA ACTIVAT</p>
+  </div>
   }
 
   <!-- ── CLIP: efecte de saturació ── -->
   @if (state() === 'off-clip') {
-    <div class="intro-clip">
-      <p class="clip-text font-mono">⚠ CLIP ⚠</p>
-      <div class="clip-meter">
-        <div class="clip-bar"></div>
-        <div class="clip-bar"></div>
-        <div class="clip-bar"></div>
-      </div>
-      <p class="clip-sub font-mono">SENYAL SATURADA · SOBRECARREGANT</p>
+  <div class="intro-clip">
+    <p class="clip-text font-mono">⚠ CLIP ⚠</p>
+    <div class="clip-meter">
+      <div class="clip-bar"></div>
+      <div class="clip-bar"></div>
+      <div class="clip-bar"></div>
     </div>
+    <p class="clip-sub font-mono">SENYAL SATURADA · SOBRECARREGANT</p>
+  </div>
   }
 
   <!-- ── COUNTDOWN: engegant o recuperant ── -->
   @if (state() === 'on-countdown' || state() === 'off-countdown') {
-    <div class="intro-countdown">
-      <p class="cd-label font-mono">
-        {{ state() === 'on-countdown' ? '▶ ENGEGANT SISTEMA...' : '⚡ RECUPERANT SENYAL...' }}
-      </p>
-      @if (countdown() > 0) {
-        <div class="cd-number font-display">{{ countdown() }}</div>
-      }
-      <div class="cd-track">
-        <div class="cd-fill" [style.width.%]="(3 - countdown()) / 3 * 100"></div>
-      </div>
+  <div class="intro-countdown">
+    <p class="cd-label font-mono">
+      {{ state() === 'on-countdown' ? '▶ ENGEGANT SISTEMA...' : '⚡ RECUPERANT SENYAL...' }}
+    </p>
+    @if (countdown() > 0) {
+    <div class="cd-number font-display">{{ countdown() }}</div>
+    }
+    <div class="cd-track">
+      <div class="cd-fill" [style.width.%]="(3 - countdown()) / 3 * 100"></div>
     </div>
+  </div>
   }
 
 </div>
