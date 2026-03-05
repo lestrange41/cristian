@@ -18,12 +18,12 @@
   <app-encore />
 </main>
 
+<!-- Panic Button -->
+<button class="panic-btn" (click)="onPanic()" data-tooltip="QUAN ESTIGUIS ESTRESSAT I NECESSITIS UNA MICA DE CONFETI, CLICKA EL BOTÓ DEL PÀNIC"></button>
+
 <!-- Global Toast Container -->
 <div class="toast-container">
-  <div
-    class="toast"
-    *ngFor="let t of toastService.toasts()"
-    (click)="toastService.dismiss(t.id)">
+  <div class="toast" *ngFor="let t of toastService.toasts()" (click)="toastService.dismiss(t.id)">
     {{ t.message }}
   </div>
 </div>

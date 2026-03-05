@@ -12,6 +12,7 @@ import { VideoModalComponent } from './shared/video-modal/video-modal.component'
 import { NgFor } from '@angular/common';
 import { ToastService, Toast } from './shared/toast';
 import { FormsModule } from '@angular/forms';
+import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-root',
@@ -35,6 +36,20 @@ import { FormsModule } from '@angular/forms';
 })
 export class App implements OnInit {
   toastService = inject(ToastService);
+
+  onPanic() {
+    const count = 200;
+    const defaults = { origin: { y: 0.7 } };
+    const fire = (particleRatio: number, opts: confetti.Options) => {
+      confetti({ ...defaults, ...opts, particleCount: Math.floor(count * particleRatio) });
+    };
+    fire(0.25, { spread: 26, startVelocity: 55, colors: ['#00ff88', '#ff9900', '#fff'] });
+    fire(0.2,  { spread: 60, colors: ['#ff9900', '#00ff88'] });
+    fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#00ff88', '#fff', '#ff9900'] });
+    fire(0.1,  { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2, colors: ['#fff'] });
+    fire(0.1,  { spread: 120, startVelocity: 45, colors: ['#ff9900'] });
+    new Audio('/audio/Confetti.mp3').play().catch(() => {});
+  }
 
   ngOnInit() {
     // Konami Code easter egg

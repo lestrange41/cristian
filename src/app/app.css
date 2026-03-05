@@ -8,3 +8,76 @@
   z-index: 0;
   pointer-events: none;
 }
+
+.panic-btn {
+  position: fixed;
+  top: 6rem;
+  right: 1.25rem;
+  z-index: 900;
+  width: 130px;
+  height: 130px;
+
+  border-radius: 50%;
+  border: 3px solid #ff9900;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+  background-color: #0a0a0f;
+  background-image: url('/photos/panic.jpg');
+  background-size: 260%;
+  background-position: 64% 32%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 12px rgba(255, 153, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  animation: panic-float 3s ease-in-out infinite;
+}
+
+.panic-btn:hover {
+  transform: scale(1.18);
+  border-color: #00ff88;
+  box-shadow: 0 0 22px rgba(0, 255, 136, 0.6), 0 4px 20px rgba(0, 0, 0, 0.5);
+  animation-play-state: paused;
+}
+
+.panic-btn:active {
+  transform: scale(0.9);
+}
+
+.panic-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid rgba(255, 153, 0, 0.4);
+  color: #f0f0f8;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  white-space: normal;
+  width: 280px;
+  text-align: left;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.panic-btn:hover::after {
+  opacity: 1;
+}
+
+@keyframes panic-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
