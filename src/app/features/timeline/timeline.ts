@@ -36,9 +36,9 @@ export class TimelineComponent {
       color: 'signal',
       expanded: false,
       photos: [
-        { id: '1986-1', placeholder: '👶', caption: 'Arribada al món amb senyal fort' },
-        { id: '1986-2', placeholder: '🍼', caption: 'Primeres gravacions' },
-        { id: '1986-3', placeholder: '🎵', caption: 'Ja amb ritme des del primer dia' }
+        { id: '1986-1', url: '/photos/1986/inf.jpg', caption: 'Primeres passes' },
+        { id: '1986-2', url: '/photos/1986/ros.jpg', caption: 'Aquell nen ros' },
+        { id: '1986-3', url: '/photos/1986/graduacio.jpg', caption: 'La graduació' }
       ],
       audioUrl: '/audio/inthenight.mp3'
     },
@@ -58,7 +58,12 @@ export class TimelineComponent {
         { id: '90s-5', url: '/photos/90s/festa.jpg', caption: 'Festes i celebracions' },
         { id: '90s-6', url: '/photos/90s/nens.jpg', caption: 'Amics i records' },
         { id: '90s-7', url: '/photos/90s/pastis.jpg', caption: 'Aniversaris especials' },
-        { id: '90s-8', url: '/photos/90s/riu.jpg', caption: 'Estiu al riu' }
+        { id: '90s-8', url: '/photos/90s/riu.jpg', caption: 'Estiu al riu' },
+        { id: '90s-9', url: '/photos/90s/malote.jpg', caption: 'El malote' },
+        { id: '90s-10', url: '/photos/90s/nene.jpg', caption: 'De petit' },
+        { id: '90s-11', url: '/photos/90s/pelos.jpg', caption: 'Aquells pels' },
+        { id: '90s-12', url: '/photos/90s/amics.jpg', caption: 'Amb els amics' },
+        { id: '90s-13', url: '/photos/90s/mes amics.jpg', caption: 'Més amics' }
       ],
       audioUrl: '/audio/infinity.mp3'
     },
@@ -76,7 +81,16 @@ export class TimelineComponent {
         { id: 'arts-3', url: '/photos/arts/MOM_0664.JPG', caption: 'Sessions en directe' },
         { id: 'arts-4', url: '/photos/arts/MOM_0734.JPG', caption: 'L\'art en viu' },
         { id: 'arts-5', url: '/photos/arts/MOM_9848.JPG', caption: 'Escenaris i emocions' },
-        { id: 'arts-6', url: '/photos/arts/MOM_9853.JPG', caption: 'Energia creativa' }
+        { id: 'arts-6', url: '/photos/arts/MOM_9853.JPG', caption: 'Energia creativa' },
+        { id: 'arts-7', url: '/photos/arts/ulleres.jpg', caption: 'Estil propi' },
+        { id: 'arts-8', url: '/photos/arts/disc.jpg', caption: 'Música a la sang' },
+        { id: 'arts-9', url: '/photos/arts/pere.jpg', caption: 'Amb en Pere' },
+        { id: 'arts-10', url: '/photos/arts/tropparty.jpg', caption: 'Tropparty' },
+        { id: 'arts-11', url: '/photos/arts/acus tic.jpg', caption: 'Acústic' },
+        { id: 'arts-12', url: '/photos/arts/turdi2.jpg', caption: 'Turdi sessions' },
+        { id: 'arts-13', url: '/photos/arts/turdi3.jpg', caption: 'Turdi en directe' },
+        { id: 'arts-14', url: '/photos/arts/gay.jpg', caption: 'Moment especial' },
+        { id: 'arts-15', url: '/photos/arts/discooo.jpg', caption: 'A la discoteca' }
       ],
       audioUrl: '/audio/FigaFlawas.mp3'
     },
@@ -94,7 +108,13 @@ export class TimelineComponent {
         { id: 'feina-3', url: '/photos/feina/IMG_4050.JPG', caption: 'Projectes en marxa' },
         { id: 'feina-4', url: '/photos/feina/MOM_8958.jpg', caption: 'Moments a l\'oficina' },
         { id: 'feina-5', url: '/photos/feina/MOM_8967.jpg', caption: 'L\'equip en acció' },
-        { id: 'feina-6', url: '/photos/feina/MOM_8977.jpg', caption: 'Vocació al màxim' }
+        { id: 'feina-6', url: '/photos/feina/MOM_8977.jpg', caption: 'Vocació al màxim' },
+        { id: 'feina-7', url: '/photos/feina/carnavalvila.jpg', caption: 'Carnaval de Vila' },
+        { id: 'feina-8', url: '/photos/feina/cristiandj.jpg', caption: 'Cristian DJ' },
+        { id: 'feina-9', url: '/photos/feina/vic.jpg', caption: 'A Vic' },
+        { id: 'feina-10', url: '/photos/feina/vic2.jpg', caption: 'Més de Vic' },
+        { id: 'feina-11', url: '/photos/feina/cristians.jpg', caption: 'Els Cristians' },
+        { id: 'feina-12', url: '/photos/feina/cris.jpg', caption: 'Cris a la feina' }
       ],
       audioUrl: '/audio/AtlantisJoel.mp3'
     },
@@ -162,7 +182,8 @@ export class TimelineComponent {
         { id: 'boda-12', url: '/photos/boda/aicri2.jpeg', caption: 'Moments de parella' },
         { id: 'boda-13', url: '/photos/boda/aicri3.jpeg', caption: 'Sempre junts' },
         { id: 'boda-14', url: '/photos/boda/MOM_0584.JPG', caption: 'Records del gran dia' },
-        { id: 'boda-15', url: '/photos/boda/MOM_0340.jpg', caption: 'Un moment especial' }
+        { id: 'boda-15', url: '/photos/boda/MOM_0340.jpg', caption: 'Un moment especial' },
+        { id: 'boda-16', url: '/photos/boda/MOM_9052.jpg', caption: 'El gran dia' }
       ],
       audioUrl: '/audio/sortdetu.mp3'
     },

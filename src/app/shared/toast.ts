@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { ApplicationRef, Injectable, inject, signal } from '@angular/core';
 
 export interface Toast {
   id: number;
@@ -8,6 +8,7 @@ export interface Toast {
 
 @Injectable({ providedIn: 'root' })
 export class ToastService {
+  private appRef = inject(ApplicationRef);
   toasts = signal<Toast[]>([]);
   private nextId = 0;
 
@@ -19,5 +20,6 @@ export class ToastService {
 
   dismiss(id: number): void {
     this.toasts.update(t => t.filter(toast => toast.id !== id));
+    this.appRef.tick();
   }
 }

@@ -26,8 +26,7 @@ export class HomeComponent {
   onMute() {
     this.gagVisible = true;
     this.toast.show('🔇 Error: silenci no trobat. Canal "Cristian" és imposible de mutejar.');
-    setTimeout(() => {
-      this.gagVisible = false;
-    }, 10000);
+    setTimeout(() => { this.gagVisible = false; }, 10000);
+    new Audio('/audio/WindowsSound.mp3').play().catch(() => {});
   }
 }

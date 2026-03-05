@@ -40,6 +40,9 @@ export class EncoreComponent implements OnInit {
     fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2, colors: ['#fff'] });
     fire(0.1, { spread: 120, startVelocity: 45, colors: ['#ff9900'] });
 
+    const audio = new Audio('/audio/Confetti.mp3');
+    audio.play().catch(() => {});
+
     this.toast.show('🎉 Feliç aniversari, Cristian! 🎛️🔊🎤');
   }
 

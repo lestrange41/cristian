@@ -159,7 +159,7 @@ export class IntroComponent {
       if (next > 0) this.playBeep();
       if (next === 0) {
         clearInterval(t);
-        this.playStartupSound(this.state() === 'on-countdown');
+        new Audio('/audio/reinicio.mp3').play().catch(() => {});
         cb();
       }
     }, 1000);
