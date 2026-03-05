@@ -7,7 +7,7 @@ import { ToastService } from '../../shared/toast';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [WaveformComponent, VuMeterComponent, NgFor, NgIf],
+  imports: [VuMeterComponent, NgFor, NgIf],
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
@@ -25,7 +25,7 @@ export class HomeComponent {
 
   onMute() {
     this.gagVisible = true;
-    this.toast.show('🔇 Error: silenci no trobat. Canal "Cristian" sempre actiu.');
+    this.toast.show('🔇 Error: silenci no trobat. Canal "Cristian" és imposible de mutejar.');
     setTimeout(() => {
       this.gagVisible = false;
     }, 10000);
