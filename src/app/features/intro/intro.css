@@ -1,4 +1,23 @@
 /* ═══════════════════════════════════════
+   LED REC — indicador parpellejant
+═══════════════════════════════════════ */
+.rec-led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff2222;
+  box-shadow: 0 0 6px #ff2222, 0 0 12px rgba(255, 30, 30, 0.6);
+  vertical-align: middle;
+  animation: led-blink 1.1s steps(1) infinite;
+}
+
+@keyframes led-blink {
+  0%, 49%  { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* ═══════════════════════════════════════
    INTRO OVERLAY — base
 ═══════════════════════════════════════ */
 .intro-overlay {
