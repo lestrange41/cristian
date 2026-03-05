@@ -131,3 +131,24 @@
       .track-dot { left: 20px; }
       .event-card { max-width: 100%; }
     }
+
+    @media (min-width: 1440px) {
+      .event-card { max-width: 480px; padding: 2rem; }
+      .event-year { font-size: 2rem; }
+      .event-title { font-size: 1.3rem; }
+      .event-desc { font-size: 1.05rem; }
+      .event-tag { font-size: 0.75rem; }
+      .track-dot { width: 54px; height: 54px; font-size: 1.5rem; }
+      .expand-btn { font-size: 0.85rem; }
+    }
+
+    @media (min-width: 1920px) {
+      .event-card { max-width: 580px; padding: 2.5rem; }
+      .event-year { font-size: 2.4rem; }
+      .event-title { font-size: 1.5rem; }
+      .event-desc { font-size: 1.2rem; line-height: 1.6; }
+      .event-tag { font-size: 0.85rem; padding: 0.3rem 0.8rem; }
+      .track-dot { width: 64px; height: 64px; font-size: 1.8rem; }
+      .expand-btn { font-size: 1rem; }
+      .timeline-item { margin-bottom: 4rem; }
+    }

@@ -140,3 +140,21 @@
   font-size: 1.2rem;
   animation: float 2s ease-in-out infinite;
 }
+
+@media (min-width: 1440px) {
+  .hero-content { max-width: 1100px; }
+  .vu-row { max-width: 720px; }
+  .vu-wrap { min-height: 150px; }
+  .vu-wrap app-vu-meter { height: 130px; }
+  .hero-subtitle { font-size: clamp(1.3rem, 1.5vw, 1.8rem); }
+  .hero-mono { font-size: 0.85rem; }
+}
+
+@media (min-width: 1920px) {
+  .hero-content { max-width: 1400px; }
+  .vu-row { max-width: 900px; }
+  .vu-wrap { min-height: 200px; }
+  .vu-wrap app-vu-meter { height: 180px; }
+  .hero-subtitle { font-size: clamp(1.5rem, 1.5vw, 2rem); }
+  .cta-btn { font-size: 1.2rem; padding: 1.2rem 3rem; }
+}

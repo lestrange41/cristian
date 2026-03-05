@@ -211,3 +211,27 @@
     font-size: 0.9rem;
   }
 }
+
+@media (min-width: 1440px) {
+  .channels-row { gap: 2rem; }
+  .channel { min-width: 100px; padding: 1.5rem 1rem 1.25rem; }
+  .channel-val { font-size: 1rem; }
+  .slider-wrap { height: 160px; }
+  .slider-v { width: 34px; }
+  .ch-emoji { font-size: 1.8rem; }
+  .ch-name { font-size: 0.75rem; }
+  .master-bar { height: 12px; }
+  .master-val { font-size: 1rem; }
+}
+
+@media (min-width: 1920px) {
+  .channels-row { gap: 2.5rem; }
+  .channel { min-width: 120px; padding: 2rem 1.25rem 1.5rem; }
+  .channel-val { font-size: 1.2rem; }
+  .slider-wrap { height: 200px; }
+  .slider-v { width: 40px; }
+  .ch-emoji { font-size: 2.2rem; }
+  .ch-name { font-size: 0.85rem; }
+  .master-bar { height: 14px; }
+  .master-val { font-size: 1.1rem; }
+}

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 import { WaveformComponent } from '../../shared/waveform/waveform';
 import { VuMeterComponent } from '../../shared/vu-meter/vu-meter';
@@ -13,7 +13,7 @@ import { ToastService } from '../../shared/toast';
 })
 export class HomeComponent {
   private toast = inject(ToastService);
-  gagVisible = false;
+  gagVisible = signal(false);
   vuMeters = ['Veu', 'Potència', 'Therian', 'Humor'];
 
   onPlay() {
@@ -24,9 +24,9 @@ export class HomeComponent {
   }
 
   onMute() {
-    this.gagVisible = true;
+    this.gagVisible.set(true);
     this.toast.show('🔇 Error: silenci no trobat. Canal "Cristian" és imposible de mutejar.');
-    setTimeout(() => { this.gagVisible = false; }, 10000);
+    setTimeout(() => { this.gagVisible.set(false); }, 10000);
     new Audio('/audio/WindowsSound.mp3').play().catch(() => {});
   }
 }

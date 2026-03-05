@@ -41,7 +41,8 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
     .db-segment {
-      height: 8px;
+      flex: 1;
+      min-height: 6px;
       width: 100%;
       position: relative;
       opacity: 0.2;

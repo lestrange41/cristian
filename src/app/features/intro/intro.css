@@ -430,3 +430,58 @@
 
 .intro-overlay[data-state="on-countdown"] .cd-fill  { background: #00ff88; }
 .intro-overlay[data-state="off-countdown"] .cd-fill { background: #ff9900; }
+
+/* ═══════════════════════════════════════
+   LARGE SCREEN SCALING
+═══════════════════════════════════════ */
+@media (min-width: 1440px) {
+  .intro-label  { font-size: 0.85rem; }
+  .intro-hint   { font-size: 0.75rem; }
+
+  .power-ring   { width: 210px; height: 210px; }
+  .power-symbol { font-size: 5.5rem; }
+  .power-actions { gap: 3.5rem; }
+
+  .rocker-btn   { width: 110px; height: 135px; }
+  .rocker-sym   { font-size: 3rem; }
+  .rocker-lbl   { font-size: 0.72rem; }
+
+  .aura-container { width: 210px; height: 210px; }
+  .aura-ring      { width: 210px; height: 210px; }
+  .aura-core      { width: 210px; height: 210px; }
+  .aura-symbol    { font-size: 5.5rem; }
+  .on-power-label { font-size: 1rem; }
+
+  .cd-number { font-size: 11rem; }
+  .cd-label  { font-size: 0.9rem; }
+  .cd-track  { width: 280px; }
+
+  .clip-text { font-size: 5rem; }
+  .clip-sub  { font-size: 0.8rem; }
+}
+
+@media (min-width: 1920px) {
+  .intro-label  { font-size: 1rem; }
+  .intro-hint   { font-size: 0.9rem; }
+
+  .power-ring   { width: 260px; height: 260px; }
+  .power-symbol { font-size: 7rem; }
+  .power-actions { gap: 5rem; }
+
+  .rocker-btn   { width: 140px; height: 170px; }
+  .rocker-sym   { font-size: 3.8rem; }
+  .rocker-lbl   { font-size: 0.88rem; }
+
+  .aura-container { width: 260px; height: 260px; }
+  .aura-ring      { width: 260px; height: 260px; }
+  .aura-core      { width: 260px; height: 260px; }
+  .aura-symbol    { font-size: 7rem; }
+  .on-power-label { font-size: 1.2rem; }
+
+  .cd-number { font-size: 15rem; }
+  .cd-label  { font-size: 1.1rem; }
+  .cd-track  { width: 360px; height: 4px; }
+
+  .clip-text { font-size: 7rem; }
+  .clip-sub  { font-size: 0.95rem; }
+}

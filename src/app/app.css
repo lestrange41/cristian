@@ -53,7 +53,7 @@
   border: 1px solid rgba(255, 153, 0, 0.4);
   color: #f0f0f8;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.65rem;
+  font-size: 0.82rem;
   letter-spacing: 0.08em;
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
@@ -79,5 +79,31 @@
 
   50% {
     transform: translateY(-5px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .panic-btn {
+    width: 160px;
+    height: 160px;
+    top: 7rem;
+    right: 2rem;
+  }
+  .panic-btn::after {
+    font-size: 0.9rem;
+    width: 320px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .panic-btn {
+    width: 190px;
+    height: 190px;
+    top: 8rem;
+    right: 2.5rem;
+  }
+  .panic-btn::after {
+    font-size: 1rem;
+    width: 360px;
   }
 }

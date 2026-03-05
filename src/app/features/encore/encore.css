@@ -99,3 +99,17 @@
   flex: 1;
   text-align: center;
 }
+
+@media (min-width: 1440px) {
+  .encore-content { max-width: 900px; }
+  .encore-body { font-size: 1.25rem; }
+  .tape-footer { font-size: 0.8rem; }
+  .encore-btn { font-size: 1.1rem; padding: 1.1rem 3rem; }
+}
+
+@media (min-width: 1920px) {
+  .encore-content { max-width: 1100px; }
+  .encore-body { font-size: 1.45rem; line-height: 1.9; }
+  .tape-footer { font-size: 0.95rem; }
+  .encore-btn { font-size: 1.25rem; padding: 1.25rem 3.5rem; }
+}

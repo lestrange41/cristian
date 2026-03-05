@@ -221,8 +221,36 @@
     font-size: 1rem;
     gap: 1rem;
   }
-  
+
   .congrats-emoji {
     font-size: 1.5em;
   }
+}
+
+@media (min-width: 1440px) {
+  .video-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+  .video-thumb { height: 190px; }
+  .card-info { padding: 1.25rem 1.5rem; }
+  .card-name { font-size: 1.1rem; }
+  .channel-tag { font-size: 0.78rem; padding: 0.2rem 0.65rem; }
+  .duration { font-size: 0.85rem; }
+  .category-badge { font-size: 0.78rem; }
+  .filter-tab { font-size: 0.88rem; padding: 0.6rem 1.5rem; }
+  .mix-label { font-size: 0.85rem; }
+  .mix-hint { font-size: 0.9rem; }
+  .mix-btn { font-size: 1.2rem; padding: 1.1rem 3.5rem; }
+}
+
+@media (min-width: 1920px) {
+  .video-grid { grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 2.5rem; }
+  .video-thumb { height: 230px; }
+  .card-info { padding: 1.5rem 1.75rem; }
+  .card-name { font-size: 1.3rem; }
+  .channel-tag { font-size: 0.9rem; padding: 0.3rem 0.8rem; }
+  .duration { font-size: 1rem; }
+  .category-badge { font-size: 0.9rem; }
+  .filter-tab { font-size: 1rem; padding: 0.7rem 1.75rem; }
+  .mix-label { font-size: 1rem; }
+  .mix-hint { font-size: 1.1rem; }
+  .mix-btn { font-size: 1.35rem; padding: 1.25rem 4rem; }
 }

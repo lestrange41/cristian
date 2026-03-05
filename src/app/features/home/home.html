@@ -38,7 +38,7 @@
     </div>
 
     <!-- Gag -->
-    <div class="hero-gag font-mono" *ngIf="gagVisible">
+    <div class="hero-gag font-mono" *ngIf="gagVisible()">
       <span class="text-clip">⚠️ ADVERTIMENT:</span> El sistema ha intentat activar el mode silenci, però l'ha rebutjat
       automàticament. El Cristian no entén aquest concepte.
     </div>
@@ -46,7 +46,7 @@
 
   <!-- Bottom scroll indicator -->
   <div class="scroll-hint">
-    <span class="font-mono text-muted">scroll per reproduir</span>
+    <span class="font-mono text-muted"></span>
     <div class="scroll-arrow">↓</div>
   </div>
 </section>

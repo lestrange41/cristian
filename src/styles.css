@@ -82,7 +82,7 @@ body {
 /* === SECTION WRAPPER === */
 .section {
   padding: var(--section-padding);
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -288,6 +288,20 @@ body {
     --section-padding: 4rem 1.25rem;
   }
   .section-title { font-size: clamp(1.6rem, 7vw, 2.5rem); }
+}
+
+@media (min-width: 1440px) {
+  :root { --section-padding: 8rem 3rem; }
+  .section-title { font-size: clamp(2.5rem, 2.5vw, 4rem); }
+  .section-subtitle { font-size: 1.2rem; max-width: 800px; }
+  .section-label { font-size: 0.85rem; }
+}
+
+@media (min-width: 1920px) {
+  :root { --section-padding: 10rem 4rem; }
+  .section-title { font-size: clamp(3rem, 2.5vw, 5rem); }
+  .section-subtitle { font-size: 1.4rem; max-width: 1000px; }
+  .section-label { font-size: 1rem; }
 }
 
 /* === FULL-WIDTH SECTION BACKGROUNDS === */
