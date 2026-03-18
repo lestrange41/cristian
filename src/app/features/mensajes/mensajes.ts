@@ -18,7 +18,7 @@ export class MensajesComponent {
     setTimeout(() => {
       this.videoModal.open({
         title: '🎉 Felicitacions per al Cristian! 🎉',
-        youtubeId: 'dQw4w9WgXcQ' // Placeholder: Rick Astley - Never Gonna Give You Up
+        youtubeId: 'sUWlSRgN3cE'
       });
     }, 500);
   }

@@ -107,3 +107,16 @@
     width: 360px;
   }
 }
+
+@media (min-width: 2560px) {
+  .panic-btn {
+    width: 240px;
+    height: 240px;
+    top: 10rem;
+    right: 3rem;
+  }
+  .panic-btn::after {
+    font-size: 1.2rem;
+    width: 440px;
+  }
+}

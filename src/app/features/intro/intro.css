@@ -485,3 +485,29 @@
   .clip-text { font-size: 7rem; }
   .clip-sub  { font-size: 0.95rem; }
 }
+
+@media (min-width: 2560px) {
+  .intro-label  { font-size: 1.2rem; }
+  .intro-hint   { font-size: 1.1rem; }
+
+  .power-ring   { width: 340px; height: 340px; }
+  .power-symbol { font-size: 9rem; }
+  .power-actions { gap: 7rem; }
+
+  .rocker-btn   { width: 180px; height: 220px; }
+  .rocker-sym   { font-size: 5rem; }
+  .rocker-lbl   { font-size: 1.1rem; }
+
+  .aura-container { width: 340px; height: 340px; }
+  .aura-ring      { width: 340px; height: 340px; }
+  .aura-core      { width: 340px; height: 340px; }
+  .aura-symbol    { font-size: 9rem; }
+  .on-power-label { font-size: 1.5rem; }
+
+  .cd-number { font-size: 20rem; }
+  .cd-label  { font-size: 1.4rem; }
+  .cd-track  { width: 480px; height: 5px; }
+
+  .clip-text { font-size: 10rem; }
+  .clip-sub  { font-size: 1.2rem; }
+}

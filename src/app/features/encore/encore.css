@@ -113,3 +113,10 @@
   .tape-footer { font-size: 0.95rem; }
   .encore-btn { font-size: 1.25rem; padding: 1.25rem 3.5rem; }
 }
+
+@media (min-width: 2560px) {
+  .encore-content { max-width: 1400px; }
+  .encore-body { font-size: 1.8rem; line-height: 2; }
+  .tape-footer { font-size: 1.15rem; }
+  .encore-btn { font-size: 1.55rem; padding: 1.5rem 4.5rem; }
+}

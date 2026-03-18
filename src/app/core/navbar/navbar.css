@@ -139,3 +139,11 @@
       .logo-accent { font-size: 1.6rem; }
       .nav-link { font-size: 1rem; padding: 0.7rem 1.4rem; }
     }
+
+    @media (min-width: 2560px) {
+      .navbar { height: 110px; }
+      .navbar-inner { padding: 0 5rem; max-width: 2400px; }
+      .logo-main { font-size: 2.6rem; }
+      .logo-accent { font-size: 2rem; }
+      .nav-link { font-size: 1.2rem; padding: 0.9rem 1.8rem; }
+    }

@@ -152,3 +152,14 @@
       .expand-btn { font-size: 1rem; }
       .timeline-item { margin-bottom: 4rem; }
     }
+
+    @media (min-width: 2560px) {
+      .event-card { max-width: 740px; padding: 3rem; }
+      .event-year { font-size: 3rem; }
+      .event-title { font-size: 1.85rem; }
+      .event-desc { font-size: 1.45rem; line-height: 1.7; }
+      .event-tag { font-size: 1rem; padding: 0.4rem 1rem; }
+      .track-dot { width: 80px; height: 80px; font-size: 2.2rem; }
+      .expand-btn { font-size: 1.2rem; }
+      .timeline-item { margin-bottom: 5rem; }
+    }

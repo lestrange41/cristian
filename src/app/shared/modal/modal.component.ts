@@ -18,8 +18,9 @@ export class ModalComponent {
   constructor() {
     // Reproducir audio cuando se abre la modal
     effect(() => {
-      if (this.modalService.isOpen() && this.modalService.currentData()?.audioUrl) {
-        this.audioService.play(this.modalService.currentData()!.audioUrl!);
+      const data = this.modalService.currentData();
+      if (this.modalService.isOpen() && data?.audioUrl && !data?.videoUrl) {
+        this.audioService.play(data.audioUrl);
       } else if (!this.modalService.isOpen()) {
         this.audioService.stop();
       }

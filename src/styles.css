@@ -304,6 +304,14 @@ body {
   .section-label { font-size: 1rem; }
 }
 
+@media (min-width: 2560px) {
+  :root { --section-padding: 12rem 6rem; }
+  .section { max-width: 2200px; }
+  .section-title { font-size: clamp(4rem, 2.5vw, 6.5rem); }
+  .section-subtitle { font-size: 1.7rem; max-width: 1300px; }
+  .section-label { font-size: 1.15rem; }
+}
+
 /* === FULL-WIDTH SECTION BACKGROUNDS === */
 .section-full {
   width: 100%;

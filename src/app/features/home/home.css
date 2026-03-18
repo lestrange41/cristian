@@ -158,3 +158,13 @@
   .hero-subtitle { font-size: clamp(1.5rem, 1.5vw, 2rem); }
   .cta-btn { font-size: 1.2rem; padding: 1.2rem 3rem; }
 }
+
+@media (min-width: 2560px) {
+  .hero-content { max-width: 1800px; }
+  .vu-row { max-width: 1200px; }
+  .vu-wrap { min-height: 260px; }
+  .vu-wrap app-vu-meter { height: 230px; }
+  .hero-subtitle { font-size: clamp(1.8rem, 1.5vw, 2.4rem); }
+  .hero-mono { font-size: 1.05rem; }
+  .cta-btn { font-size: 1.45rem; padding: 1.4rem 3.5rem; }
+}

@@ -14,13 +14,25 @@
         <button class="modal-close" (click)="close()" aria-label="Tancar">×</button>
       </div>
 
-      <!-- Body with Carousel -->
+      <!-- Body: Video or Carousel -->
       <div class="modal-body">
-        <app-carousel
-          [photos]="modalService.currentData()?.photos || []"
-          [color]="modalService.currentData()?.eventColor || 'signal'"
-          [autoplayInterval]="6000">
-        </app-carousel>
+        @if (modalService.currentData()?.videoUrl) {
+          <div class="modal-video-wrap">
+            <video
+              class="modal-video"
+              [src]="modalService.currentData()!.videoUrl!"
+              controls
+              autoplay
+              playsinline>
+            </video>
+          </div>
+        } @else {
+          <app-carousel
+            [photos]="modalService.currentData()?.photos || []"
+            [color]="modalService.currentData()?.eventColor || 'signal'"
+            [autoplayInterval]="6000">
+          </app-carousel>
+        }
       </div>
     </div>
   </div>

@@ -13,6 +13,7 @@ export interface ModalData {
   eventColor: 'signal' | 'gold' | 'clip';
   photos: Photo[];
   audioUrl?: string;
+  videoUrl?: string;
 }
 
 @Injectable({ providedIn: 'root' })
