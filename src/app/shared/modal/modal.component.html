@@ -18,13 +18,7 @@
       <div class="modal-body">
         @if (modalService.currentData()?.videoUrl) {
           <div class="modal-video-wrap">
-            <video
-              class="modal-video"
-              [src]="modalService.currentData()!.videoUrl!"
-              controls
-              autoplay
-              playsinline>
-            </video>
+            <video #videoEl class="modal-video" controls playsinline></video>
           </div>
         } @else {
           <app-carousel

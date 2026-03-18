@@ -1,4 +1,4 @@
-import { Component, inject, effect, HostListener } from '@angular/core';
+import { Component, inject, effect, HostListener, viewChild, ElementRef } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { ModalService } from './modal.service';
 import { AudioPlayerService } from '../audio-player.service';
@@ -14,9 +14,21 @@ import { CarouselComponent } from '../carousel/carousel.component';
 export class ModalComponent {
   modalService = inject(ModalService);
   private audioService = inject(AudioPlayerService);
+  private videoRef = viewChild<ElementRef<HTMLVideoElement>>('videoEl');
 
   constructor() {
-    // Reproducir audio cuando se abre la modal
+    // Set video src imperatively, only once per URL (prevents restart on fullscreen)
+    effect(() => {
+      const el = this.videoRef()?.nativeElement;
+      const data = this.modalService.currentData();
+      if (el && data?.videoUrl && el.getAttribute('src') !== data.videoUrl) {
+        el.setAttribute('src', data.videoUrl);
+        el.load();
+        el.play().catch(() => {});
+      }
+    });
+
+    // Play section audio (skip if modal has a video)
     effect(() => {
       const data = this.modalService.currentData();
       if (this.modalService.isOpen() && data?.audioUrl && !data?.videoUrl) {

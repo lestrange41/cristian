@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { NgFor, NgIf, NgClass } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { ModalService, Photo } from '../../shared/modal/modal.service';
 
 interface TimelineEvent {
@@ -8,7 +8,6 @@ interface TimelineEvent {
   description: string;
   tag: string;
   emoji: string;
-  expanded?: boolean;
   color: 'signal' | 'gold' | 'clip';
   photos: Photo[];
   audioUrl?: string;
@@ -18,7 +17,7 @@ interface TimelineEvent {
 @Component({
   selector: 'app-timeline',
   standalone: true,
-  imports: [NgFor, NgIf, NgClass],
+  imports: [NgClass],
   templateUrl: './timeline.html',
   styleUrls: ['./timeline.css']
 })
@@ -33,7 +32,6 @@ export class TimelineComponent {
       tag: '▶ SENYAL DETECTADA',
       emoji: '👶',
       color: 'signal',
-      expanded: false,
       photos: [
         { id: '1986-1', url: '/photos/1986/inf.jpg', caption: '' },
         { id: '1986-2', url: '/photos/1986/ros.jpg', caption: '' },
@@ -80,7 +78,6 @@ export class TimelineComponent {
       tag: '⚡ OVERDRIVE',
       emoji: '🎸',
       color: 'clip',
-      expanded: false,
       photos: [
         { id: '90s-1', url: '/photos/90s/dj.jpg', caption: '' },
         { id: '90s-2', url: '/photos/90s/dj2.jpg', caption: '' },
@@ -105,7 +102,6 @@ export class TimelineComponent {
       tag: '🎨 EN DIRECTE',
       emoji: '🎭',
       color: 'clip',
-      expanded: false,
       photos: [
         { id: 'amics-1', url: '/photos/feina/ulleres.jpg', caption: '' },
         { id: 'amics-2', url: '/photos/feina/disc.jpg', caption: '' },
@@ -151,7 +147,6 @@ export class TimelineComponent {
       tag: '👨‍👩‍👧‍👦 FAMÍLIA ON AIR',
       emoji: '❤️',
       color: 'signal',
-      expanded: false,
       photos: [
         { id: 'family-1', url: '/photos/family/family.jpg', caption: '' },
         { id: 'family-2', url: '/photos/family/family2.jpeg', caption: '' },
@@ -230,7 +225,6 @@ export class TimelineComponent {
       tag: '💍 CASATS & FELIÇOS',
       emoji: '💑',
       color: 'gold',
-      expanded: false,
       photos: [
         { id: 'boda-1', url: '/photos/boda/0MM01651.JPG', caption: '' },
         { id: 'boda-2', url: '/photos/boda/0MM01682.JPG', caption: '' },
@@ -269,7 +263,6 @@ export class TimelineComponent {
       tag: '👶 NOVA ESTRELLA',
       emoji: '🌟',
       color: 'signal',
-      expanded: false,
       photos: [
         { id: 'aran-4', url: '/photos/aran/panxa.jpg', caption: '' },
         {
@@ -287,7 +280,6 @@ export class TimelineComponent {
       tag: '🎤 BONUS TRACK',
       emoji: '🎤',
       color: 'gold',
-      expanded: false,
       photos: [],
       videoUrl: '/photos/video karaoke.mp4'
     },
