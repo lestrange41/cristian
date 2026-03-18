@@ -1,12 +1,11 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
-import { WaveformComponent } from '../../shared/waveform/waveform';
+import { Component, OnInit, inject } from '@angular/core';
 import { ToastService } from '../../shared/toast';
 import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-encore',
   standalone: true,
-  imports: [WaveformComponent],
+  imports: [],
   templateUrl: './encore.html',
   styleUrls: ['./encore.css']
 })
