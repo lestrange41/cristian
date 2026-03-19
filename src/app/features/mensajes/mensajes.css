@@ -54,6 +54,23 @@
   filter: drop-shadow(0 0 35px rgba(255, 153, 0, 0.7));
 }
 
+/* Second gift reveal animations */
+.gift-drop {
+  animation: giftDrop 2s ease-out forwards;
+}
+
+@keyframes giftDrop {
+  0%   { opacity: 0; transform: translateY(-220px) scale(0.3) rotate(-20deg); }
+  60%  { opacity: 1; transform: translateY(14px) scale(1.08) rotate(4deg); }
+  78%  { transform: translateY(-6px) scale(0.97) rotate(-2deg); }
+  90%  { transform: translateY(3px) scale(1.02) rotate(1deg); }
+  100% { transform: translateY(0) scale(1) rotate(0deg); }
+}
+
+.gift-hint-reveal {
+  animation: revealFadeUp 0.7s ease 1.2s both;
+}
+
 /* Second gift — blue */
 .gift-hint-blue {
   color: #00c8ff;
@@ -67,6 +84,11 @@
 
 .gift-btn-blue {
   filter: hue-rotate(160deg) drop-shadow(0 0 20px rgba(0, 180, 255, 0.5));
+}
+
+/* Combined: drop wins over the base bounce */
+.gift-btn-blue.gift-drop {
+  animation: giftDrop 2s ease-out forwards;
 }
 
 .gift-btn-blue:hover {

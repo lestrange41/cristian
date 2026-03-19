@@ -47,7 +47,10 @@ export class MensajesComponent {
         eventColor: 'gold',
         photos: [],
         videoUrl: '/photos/video moi.mp4',
-        onVideoEnded: () => this.giftWatched.set(true)
+        onVideoEnded: () => {
+          new Audio('/audio/regalo.m4a').play().catch(() => {});
+          setTimeout(() => this.giftWatched.set(true), 400);
+        }
       });
     }, 500);
   }

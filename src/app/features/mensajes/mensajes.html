@@ -12,9 +12,9 @@
     }
     <!-- Second gift (visible only after first video ends) -->
     @if (giftWatched()) {
-      <div class="gift-wrap congrats-reveal">
-        <p class="gift-hint gift-hint-blue font-mono">🎁 SEMBLA QUE TENS UN ALTRE REGAL... 🎁</p>
-        <button class="gift-btn gift-btn-blue" (click)="openCongrats()" aria-label="Obrir segon regal">🎁</button>
+      <div class="gift-wrap">
+        <p class="gift-hint gift-hint-blue font-mono gift-hint-reveal">🎁 SEMBLA QUE TENS UN ALTRE REGAL... 🎁</p>
+        <button class="gift-btn gift-btn-blue gift-drop" (click)="openCongrats()" aria-label="Obrir segon regal">🎁</button>
       </div>
     }
 
