@@ -2,6 +2,57 @@
   background: transparent;
   padding: 6rem 0;
 }
+
+/* Gift button */
+.gift-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 3.5rem;
+}
+
+.gift-hint {
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  text-align: center;
+  margin: 0;
+  animation: giftPulseText 2s ease-in-out infinite;
+}
+
+@keyframes giftPulseText {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.gift-btn {
+  font-size: 8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.5rem;
+  transition: transform 0.2s ease;
+  animation: giftBounce 2.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px rgba(255, 153, 0, 0.4));
+}
+
+.gift-btn:hover {
+  animation: none;
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 35px rgba(255, 153, 0, 0.7));
+}
+
+.gift-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes giftBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-12px) rotate(-3deg); }
+  60% { transform: translateY(-6px) rotate(3deg); }
+}
 .filter-tabs {
   display: flex;
   gap: 0.5rem;
