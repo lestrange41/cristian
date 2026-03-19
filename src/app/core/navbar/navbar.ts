@@ -28,7 +28,7 @@ export class NavbarComponent implements OnInit {
     { label: 'Inici', anchor: '#home', icon: '🎤' },
     { label: 'Cronologia', anchor: '#timeline', icon: '📼' },
     { label: 'M32', anchor: '#mixer', icon: '🎛️' },
-    { label: 'Video', anchor: '#mensajes', icon: '📻' },
+    { label: 'Secret', anchor: '#mensajes', icon: '🔒' },
     { label: 'Fi de pista', anchor: '#encore', icon: '🔊' },
   ];
 

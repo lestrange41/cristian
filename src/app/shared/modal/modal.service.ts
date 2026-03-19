@@ -14,6 +14,7 @@ export interface ModalData {
   photos: Photo[];
   audioUrl?: string;
   videoUrl?: string;
+  onVideoEnded?: () => void;
 }
 
 @Injectable({ providedIn: 'root' })

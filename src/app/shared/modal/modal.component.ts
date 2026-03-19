@@ -25,6 +25,10 @@ export class ModalComponent {
         el.setAttribute('src', data.videoUrl);
         el.load();
         el.play().catch(() => {});
+        el.addEventListener('ended', () => {
+          data.onVideoEnded?.();
+          this.close();
+        }, { once: true });
       }
     });
 
