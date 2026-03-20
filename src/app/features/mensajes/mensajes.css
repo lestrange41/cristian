@@ -1,6 +1,102 @@
 .mensajes-bg {
   background: transparent;
   padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Flying screwdrivers */
+.screwdriver-wrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* El .screw només mou posició — NO rota, perquè el tooltip és fill seu */
+.screw {
+  position: absolute;
+  pointer-events: all;
+  cursor: default;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* L'emoji rota/gira independentment */
+.screw-emoji {
+  display: inline-block;
+  line-height: 1;
+}
+
+.screw:hover                      { animation-play-state: paused; }
+.screw:hover .screw-emoji         { animation-play-state: paused; }
+.screw:hover .screwdriver-tooltip { display: block; }
+
+/* 1 — 🔧 LR dalt, lent */
+.screw-1        { animation: screwPos1 10s linear infinite; }
+.screw-1 .screw-emoji { font-size: 3.5rem; animation: screwRot1 10s linear infinite; }
+@keyframes screwPos1 {
+  0%   { left: -8%;  top: 12%; }
+  100% { left: 108%; top: 22%; }
+}
+@keyframes screwRot1 {
+  0%   { transform: rotate(-35deg); }
+  100% { transform: rotate(25deg); }
+}
+
+/* 2 — 🪛 RL baix, mitjà */
+.screw-2        { animation: screwPos2 7s linear infinite 2.5s; }
+.screw-2 .screw-emoji { font-size: 3rem; animation: screwRot2 7s linear infinite 2.5s; }
+@keyframes screwPos2 {
+  0%   { left: 108%; top: 70%; }
+  100% { left: -8%;  top: 55%; }
+}
+@keyframes screwRot2 {
+  0%   { transform: scaleX(-1) rotate(20deg); }
+  100% { transform: scaleX(-1) rotate(-20deg); }
+}
+
+/* 3 — ⚙️ LR diagonal avall, girant doble volta */
+.screw-3        { animation: screwPos3 13s linear infinite 5s; }
+.screw-3 .screw-emoji { font-size: 2.8rem; animation: screwRot3 13s linear infinite 5s; }
+@keyframes screwPos3 {
+  0%   { left: -8%;  top: 5%;  }
+  100% { left: 108%; top: 88%; }
+}
+@keyframes screwRot3 {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(720deg); }
+}
+
+/* 4 — 🔩 RL mig, ràpid */
+.screw-4        { animation: screwPos4 5s linear infinite 1s; }
+.screw-4 .screw-emoji { font-size: 2.4rem; animation: screwRot4 5s linear infinite 1s; }
+@keyframes screwPos4 {
+  0%   { left: 108%; top: 42%; }
+  100% { left: -8%;  top: 35%; }
+}
+@keyframes screwRot4 {
+  0%   { transform: rotate(15deg); }
+  100% { transform: rotate(-200deg); }
+}
+
+/* Tooltip — sempre horitzontal perquè el pare no rota */
+.screwdriver-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 10, 20, 0.92);
+  border: 1px solid rgba(255, 153, 0, 0.4);
+  color: var(--color-gold);
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  pointer-events: none;
 }
 
 /* Congrats reveal animation */
