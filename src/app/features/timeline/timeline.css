@@ -1,3 +1,142 @@
+    /* ── CD Cover ── */
+    .cd-cover-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      gap: 2rem;
+    }
+    .cd-section-header {
+      text-align: center;
+    }
+    .cd-cover {
+      position: relative;
+      width: min(580px, 92vw);
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,153,0,0.2);
+    }
+    .cd-cover-bg {
+      position: absolute;
+      inset: 0;
+      /* Canvia la foto si en vols una altra */
+      background-image: url('/photos/feina/MOM_8967.jpg');
+      background-size: cover;
+      background-position: center top;
+      filter: saturate(0.65) brightness(0.5);
+      transform: scale(1.06);
+    }
+    .cd-cover-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.75) 100%);
+    }
+    .cd-cover-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding: 2rem;
+      text-align: center;
+      gap: 0.45rem;
+    }
+    .cd-disc-icon {
+      font-size: 2.8rem;
+      animation: cdSpin 5s linear infinite;
+      margin-bottom: 0.4rem;
+    }
+    @keyframes cdSpin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+    .cd-artist {
+      font-size: clamp(2rem, 8vw, 3.2rem);
+      font-weight: 900;
+      color: var(--color-text);
+      line-height: 1;
+      letter-spacing: 0.06em;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+    }
+    .cd-album {
+      font-size: clamp(3rem, 11vw, 5rem);
+      font-weight: 900;
+      color: var(--color-gold);
+      line-height: 1;
+      text-shadow: 0 0 35px rgba(255,153,0,0.65), 0 2px 20px rgba(0,0,0,0.9);
+    }
+    .cd-meta {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: rgba(240,240,248,0.5);
+      margin-top: 0.2rem;
+    }
+    .cd-pistes {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: rgba(240,240,248,0.3);
+    }
+    .cd-play-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      background: rgba(255,153,0,0.12);
+      border: 2px solid var(--color-gold);
+      border-radius: 50px;
+      padding: 0.8rem 2.2rem;
+      color: var(--color-gold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      animation: cdPlayPulse 2s ease-in-out infinite;
+      margin-top: 0.6rem;
+    }
+    .cd-play-btn:hover {
+      background: rgba(255,153,0,0.28);
+      box-shadow: 0 0 35px rgba(255,153,0,0.55);
+      transform: scale(1.06);
+    }
+    .cd-play-btn:active { transform: scale(0.97); }
+    .cd-play-arrow { font-size: 1.1rem; }
+    .cd-play-text {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+    }
+    @keyframes cdPlayPulse {
+      0%, 100% { box-shadow: 0 0 12px rgba(255,153,0,0.3); }
+      50%       { box-shadow: 0 0 32px rgba(255,153,0,0.6); }
+    }
+    .cd-hint {
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: rgba(240,240,248,0.18);
+      margin-top: 0.6rem;
+    }
+
+    /* Timeline reveal animation */
+    .cd-revealed {
+      animation: cdReveal 0.7s ease both;
+    }
+    @keyframes cdReveal {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Track number in event cards */
+    .track-num {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: rgba(240,240,248,0.3);
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+
     .timeline-bg {
       background: transparent;
       padding: 6rem 0;

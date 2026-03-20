@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { ModalService, Photo } from '../../shared/modal/modal.service';
 
@@ -23,6 +23,38 @@ interface TimelineEvent {
 })
 export class TimelineComponent {
   private modalService = inject(ModalService);
+
+  cdOpened = signal(false);
+
+  playCd() {
+    this.playScratch();
+    setTimeout(() => this.cdOpened.set(true), 700);
+  }
+
+  private playScratch() {
+    try {
+      const ctx = new AudioContext();
+      const t = ctx.currentTime;
+      const burst = (start: number, dur: number, rate: number, vol: number, freq: number) => {
+        const len = Math.floor(ctx.sampleRate * dur);
+        const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+        const src = ctx.createBufferSource(); src.buffer = buf; src.playbackRate.value = rate;
+        const filt = ctx.createBiquadFilter(); filt.type = 'bandpass'; filt.frequency.value = freq; filt.Q.value = 1.8;
+        const gain = ctx.createGain();
+        gain.gain.setValueAtTime(0, start); gain.gain.linearRampToValueAtTime(vol, start + 0.01);
+        gain.gain.exponentialRampToValueAtTime(0.001, start + dur);
+        src.connect(filt); filt.connect(gain); gain.connect(ctx.destination); src.start(start);
+      };
+      burst(t, 0.13, 1.8, 0.7, 2200);
+      burst(t + 0.15, 0.07, 2.3, 0.5, 3200);
+      burst(t + 0.25, 0.14, 1.5, 0.8, 1800);
+      burst(t + 0.41, 0.07, 2.6, 0.6, 3600);
+      burst(t + 0.50, 0.16, 2.0, 0.75, 2600);
+      setTimeout(() => ctx.close(), 1200);
+    } catch (_) { /* AudioContext no disponible */ }
+  }
 
   events: TimelineEvent[] = [
     {
@@ -71,7 +103,7 @@ export class TimelineComponent {
       year: 'La joventut feat Cristian\'s Events',
       title: 'La joventut feat Cristian\'s Events',
       description: 'L\'adolescència: l\'únic període on el clipping era completament acceptable. Els seus pares ho confirmen.',
-      tag: '⚡ OVERDRIVE',
+      tag: '⚡ NON STOP',
       emoji: '🎸',
       color: 'clip',
       photos: [
