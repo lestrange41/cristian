@@ -3,6 +3,8 @@ import { NgFor, NgClass, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ToastService } from '../../shared/toast';
 import { VuMeterComponent } from '../../shared/vu-meter/vu-meter';
+import { VideoModalService } from '../../shared/video-modal.service';
+import confetti from 'canvas-confetti';
 
 interface Channel {
   id: string;
@@ -24,8 +26,10 @@ interface Channel {
 })
 export class MixerComponent {
   private toast = inject(ToastService);
+  private videoModal = inject(VideoModalService);
   currentMsg = signal('');
   secretUnlocked = signal(false);
+  humorMax = signal(false);
   secretValue = 50;
 
   private faderCtx: AudioContext | null = null;
@@ -46,7 +50,7 @@ export class MixerComponent {
     },
     {
       id: 'flow', label: 'Flow', emoji: '🌊', value: 65,
-      msgLow: 'Soroll de fons detectat. Revisar connexions.',
+      msgLow: 'Niceto no se escucha nada... ⚠️⚠️⚠️',
       msgMid: 'No tardo res, en 5 minuts arribo!!!',
       msgHigh: 'Un segon que m\'estan trucant',
     },
@@ -58,8 +62,8 @@ export class MixerComponent {
     },
     {
       id: 'feedback', label: 'Feedback', emoji: '❤️', value: 85,
-      msgLow: 'Canal en silenci. Estrany. Estàs bé?',
-      msgMid: 'Ainhoa, ja plego. Ja vaig cap a casa!!! 3h després...Esque volia escoltar com sonava el d&b.',
+      msgLow: 'Ara et paso la llista del material.',
+      msgMid: 'Ainhoa, ja plego. Ja vaig cap a casa!!! (3h després...) Esque volia escoltar com sonava el d&b.',
       msgHigh: 'Virginia aguanta el destornillador',
     },
   ];
@@ -121,10 +125,48 @@ export class MixerComponent {
     } catch (_) { /* AudioContext no disponible */ }
   }
 
+  private jokes = [
+    '🎙️ — Això era un gos que tenia una pota de goma, es va anar a rascar i es va borrar',
+    '🎙️ — Això és un que entra a un bar de pinxos: Ay! Uy! Ay!',
+    '🎙️ — Pep, fa pudor de mort, pep... PEPPPPPPPPPPPPPPPPPPPPPPP!!!',
+    '🎙️ — Que li diu un vuit a un zero? Bonic cinturó!',
+    '🎙️ — Com es diu el campeó de busseig de Japó? Tokofondo.',
+    '🎙️ —  Doctor, doctor… Amb diarrea em puc banyar? — Home, si és abundant …',
+    '🎙️ — Com és diu mocador en Japonés? - Sakamoko ',
+    '🎙️ — ¿Qué le dice un jardinero a otro? Nos vemos cuando podamos.',
+    '🎙️ — Van dos fantasmas y se cae el del médium.',
+    '🎙️ — HUMOR AL MÀXIM 🎤🎤🎤 El Cristian porta 40 anys fent acudits pitjors que aquests.',
+  ];
+
   onSecretSlider() {
-    if (this.secretValue >= 95) {
-      this.toast.show('🎤🎤🎤🎤🎤🎤🎤🎤🎤🎤 HUMOR MÀXIM DETECTAT.');
+    const idx = Math.min(Math.floor(this.secretValue / 10), 9);
+    this.currentMsg.set(this.jokes[idx]);
+    const wasMax = this.humorMax();
+    this.humorMax.set(this.secretValue >= 100);
+    if (this.secretValue >= 100 && !wasMax) {
+      this.fireConfetti();
+      this.toast.show('🚨ATENCIÓ, ACUDIT ESTRELLA DEL CRISTIAN🚨');
     }
+  }
+
+  private fireConfetti() {
+    const count = 200;
+    const defaults = { origin: { y: 0.6 } };
+    const fire = (ratio: number, opts: confetti.Options) =>
+      confetti({ ...defaults, ...opts, particleCount: Math.floor(count * ratio) });
+    fire(0.25, { spread: 26, startVelocity: 55, colors: ['#ff9900', '#ffd700', '#fff'] });
+    fire(0.2, { spread: 60, colors: ['#ffd700', '#ff9900'] });
+    fire(0.35, { spread: 100, decay: 0.91, scalar: 0.8, colors: ['#ff9900', '#fff', '#ffd700'] });
+    fire(0.1, { spread: 120, startVelocity: 25, decay: 0.92, scalar: 1.2, colors: ['#fff'] });
+    fire(0.1, { spread: 120, startVelocity: 45, colors: ['#ffd700'] });
+    new Audio('/audio/Confetti.mp3').play().catch(() => { });
+  }
+
+  openStarJoke() {
+    this.videoModal.open({
+      title: '⭐ L\'Acudit Estrella del Cristian ⭐',
+      youtubeId: '-n2bOZPdVwA'
+    });
   }
 
   isOverload(): boolean { return this.channels.every(c => c.value >= 90); }

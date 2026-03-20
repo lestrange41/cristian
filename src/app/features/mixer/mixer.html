@@ -3,15 +3,15 @@
     <div class="section-label">🎛️Midas M32 Live</div>
     <h2 class="section-title">El Mesclador de la Vida</h2>
     <p class="section-subtitle">
-      Tots en tenim un. El del Cristian porta 40 anys sense manual d'instruccions.
-      <br><em class="font-mono" style="font-size:0.8rem">Mou els sliders. Sota el teu risc.</em>
+      Mou els faders. Sota el teu risc.
+
     </p>
 
     <!-- Mixer console -->
     <div class="mixer-console" [class.overload]="isOverload()">
       <!-- Overload banner -->
       <div class="overload-banner" *ngIf="isOverload()">
-        🔴 ALERTA: El sistema explotarà de tant Cristian. Deixa anar els sliders.
+        🔴 ALERTA: El sistema explotarà de tant Cristian. Deixa anar els faders.
       </div>
 
       <!-- Silence banner -->
@@ -65,6 +65,15 @@
           {{ currentMsg() }}
         </span>
       </div>
+
+      <!-- Star joke button (humor al 100) -->
+      @if (humorMax()) {
+      <div class="star-joke-wrap">
+        <button class="star-joke-btn" (click)="openStarJoke()">
+          ⭐⭐⭐ ACUDIT ESTRELLA DEN CRISTIAN ⭐⭐⭐
+        </button>
+      </div>
+      }
 
       <!-- Master section -->
       <div class="master-section">
