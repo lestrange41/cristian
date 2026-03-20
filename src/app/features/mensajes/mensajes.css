@@ -34,7 +34,7 @@
 
 /* 1 — 🔧 LR dalt, lent */
 .screw-1        { animation: screwPos1 10s linear infinite; }
-.screw-1 .screw-emoji { font-size: 3.5rem; animation: screwRot1 10s linear infinite; }
+.screw-1 .screw-emoji { font-size: 4.2rem; animation: screwRot1 10s linear infinite; }
 @keyframes screwPos1 {
   0%   { left: -8%;  top: 12%; }
   100% { left: 108%; top: 22%; }
@@ -46,7 +46,7 @@
 
 /* 2 — 🪛 RL baix, mitjà */
 .screw-2        { animation: screwPos2 7s linear infinite 2.5s; }
-.screw-2 .screw-emoji { font-size: 3rem; animation: screwRot2 7s linear infinite 2.5s; }
+.screw-2 .screw-emoji { font-size: 3.8rem; animation: screwRot2 7s linear infinite 2.5s; }
 @keyframes screwPos2 {
   0%   { left: 108%; top: 70%; }
   100% { left: -8%;  top: 55%; }
@@ -58,7 +58,7 @@
 
 /* 3 — ⚙️ LR diagonal avall, girant doble volta */
 .screw-3        { animation: screwPos3 13s linear infinite 5s; }
-.screw-3 .screw-emoji { font-size: 2.8rem; animation: screwRot3 13s linear infinite 5s; }
+.screw-3 .screw-emoji { font-size: 3.4rem; animation: screwRot3 13s linear infinite 5s; }
 @keyframes screwPos3 {
   0%   { left: -8%;  top: 5%;  }
   100% { left: 108%; top: 88%; }
@@ -69,8 +69,8 @@
 }
 
 /* 4 — 🔩 RL mig, ràpid */
-.screw-4        { animation: screwPos4 5s linear infinite 1s; }
-.screw-4 .screw-emoji { font-size: 2.4rem; animation: screwRot4 5s linear infinite 1s; }
+.screw-4        { animation: screwPos4 12s linear infinite 1s; }
+.screw-4 .screw-emoji { font-size: 3rem; animation: screwRot4 12s linear infinite 1s; }
 @keyframes screwPos4 {
   0%   { left: 108%; top: 42%; }
   100% { left: -8%;  top: 35%; }
@@ -78,6 +78,44 @@
 @keyframes screwRot4 {
   0%   { transform: rotate(15deg); }
   100% { transform: rotate(-200deg); }
+}
+
+/* 5 — 🪴 planta, LR mig, suau (poc gir, és una planta!) */
+.screw-5        { animation: screwPos5 8s linear infinite 3s; }
+.screw-5 .screw-emoji { font-size: 4rem; animation: screwRot5 8s ease-in-out infinite 3s; }
+@keyframes screwPos5 {
+  0%   { left: -8%;  top: 48%; }
+  100% { left: 108%; top: 38%; }
+}
+@keyframes screwRot5 {
+  0%   { transform: rotate(-8deg); }
+  50%  { transform: rotate(8deg); }
+  100% { transform: rotate(-8deg); }
+}
+
+/* 6 — 😤 RL dalt, ràpid i furiós */
+.screw-6        { animation: screwPos6 10s linear infinite 0.5s; }
+.screw-6 .screw-emoji { font-size: 3.6rem; animation: screwRot6 10s linear infinite 0.5s; }
+@keyframes screwPos6 {
+  0%   { left: 108%; top: 8%; }
+  100% { left: -8%;  top: 18%; }
+}
+@keyframes screwRot6 {
+  0%   { transform: scaleX(-1) rotate(-10deg); }
+  50%  { transform: scaleX(-1) rotate(10deg); }
+  100% { transform: scaleX(-1) rotate(-10deg); }
+}
+
+/* 7 — 🚀 LR baix, molt lent */
+.screw-7        { animation: screwPos7 11s linear infinite 7s; }
+.screw-7 .screw-emoji { font-size: 4rem; animation: screwRot7 11s linear infinite 7s; }
+@keyframes screwPos7 {
+  0%   { left: -8%;  top: 78%; }
+  100% { left: 108%; top: 65%; }
+}
+@keyframes screwRot7 {
+  0%   { transform: rotate(45deg); }
+  100% { transform: rotate(45deg) translateY(-6px); }
 }
 
 /* Tooltip — sempre horitzontal perquè el pare no rota */
