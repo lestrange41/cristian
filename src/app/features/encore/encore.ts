@@ -1,6 +1,8 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, signal } from '@angular/core';
 import { ToastService } from '../../shared/toast';
 import confetti from 'canvas-confetti';
+
+interface AliveTime { days: number; hours: number; minutes: number; seconds: number; }
 
 @Component({
   selector: 'app-encore',
@@ -9,11 +11,30 @@ import confetti from 'canvas-confetti';
   templateUrl: './encore.html',
   styleUrls: ['./encore.css']
 })
-export class EncoreComponent implements OnInit {
+export class EncoreComponent implements OnInit, OnDestroy {
   private toast = inject(ToastService);
+  private ticker: ReturnType<typeof setInterval> | null = null;
+  private readonly BIRTHDAY = new Date(1986, 2, 18, 6, 0, 0); // 18 de març de 1986 a les 6h
+
+  aliveTime = signal<AliveTime>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  pad2(n: number): string { return n.toString().padStart(2, '0'); }
+
+  private tick() {
+    const diff = Date.now() - this.BIRTHDAY.getTime();
+    const total = Math.floor(diff / 1000);
+    this.aliveTime.set({
+      days:    Math.floor(total / 86400),
+      hours:   Math.floor((total % 86400) / 3600),
+      minutes: Math.floor((total % 3600) / 60),
+      seconds: total % 60,
+    });
+  }
 
   ngOnInit() {
-    // Fire confetti when section is visible
+    this.tick();
+    this.ticker = setInterval(() => this.tick(), 1000);
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -25,6 +46,10 @@ export class EncoreComponent implements OnInit {
 
     const el = document.getElementById('encore');
     if (el) observer.observe(el);
+  }
+
+  ngOnDestroy() {
+    if (this.ticker) clearInterval(this.ticker);
   }
 
   fireConfetti() {

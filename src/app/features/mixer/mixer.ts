@@ -169,6 +169,56 @@ export class MixerComponent {
     });
   }
 
+  randomizeFaders() {
+    this.channels.forEach(ch => { ch.value = Math.floor(Math.random() * 101); });
+    const combos = [
+      '🎲 Combinació aleatòria. El Cristian és imprevisible per definició.',
+      '🎰 Mode "sense cafeïna" activat. Resultats impredictibles.',
+      '🎲 Faders shuffled. Com la seva playlist de Spotify.',
+      '🎰 Mode caos activat. Com el seu cable management.',
+      '🎲 Cristian en format sorpresa. Com sempre.',
+    ];
+    this.currentMsg.set(combos[Math.floor(Math.random() * combos.length)]);
+    const totalAvg = this.channels.reduce((s, c) => s + c.value, 0) / this.channels.length;
+    if (totalAvg > 85 && !this.secretUnlocked()) {
+      this.secretUnlocked.set(true);
+      this.toast.show('🔓 Canal secret desbloquejat: HUMOR. Usa\'l amb responsabilitat.');
+    }
+  }
+
+  resetFaders() {
+    this.channels.forEach(ch => ch.value = 0);
+    this.secretValue = 0;
+    this.secretUnlocked.set(false);
+    this.humorMax.set(false);
+    this.currentMsg.set('');
+    this.playShutdownSound();
+    this.toast.show('💀 Cristian.exe ha parat de respondre. Reiniciant sistema...');
+  }
+
+  allMaxFaders() {
+    this.channels.forEach(ch => ch.value = 100);
+    if (!this.secretUnlocked()) { this.secretUnlocked.set(true); }
+    this.currentMsg.set('⚠️ TOTS ELS CANALS AL MÀXIM. El Cristian ha depassat els límits físics del so.');
+    this.toast.show('🔴 SATURACIÓ TOTAL. Cristian al 100% en tots els canals. L\'altaveu ha mort.');
+  }
+
+  private playShutdownSound() {
+    try {
+      if (!this.faderCtx || this.faderCtx.state === 'closed') {
+        this.faderCtx = new AudioContext();
+      }
+      const ctx = this.faderCtx;
+      const t = ctx.currentTime;
+      [800, 600, 400, 220, 100].forEach((freq, i) => {
+        const osc = ctx.createOscillator(); const gain = ctx.createGain();
+        osc.type = 'sawtooth'; osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.15, t + i * 0.1); gain.gain.exponentialRampToValueAtTime(0.001, t + i * 0.1 + 0.09);
+        osc.connect(gain); gain.connect(ctx.destination); osc.start(t + i * 0.1); osc.stop(t + i * 0.1 + 0.1);
+      });
+    } catch (_) { /* AudioContext no disponible */ }
+  }
+
   isOverload(): boolean { return this.channels.every(c => c.value >= 90); }
   isSilence(): boolean { return this.channels.every(c => c.value <= 10); }
 

@@ -10,6 +10,32 @@
       Gràcies per 40 anys<br>de bon so.
     </h2>
 
+    <!-- Real-time alive counter -->
+    <div class="days-counter">
+      <div class="alive-display font-mono">
+        <div class="alive-unit">
+          <span class="alive-val">{{ aliveTime().days.toLocaleString('ca') }}</span>
+          <span class="alive-unit-label">dies</span>
+        </div>
+        <span class="alive-sep">:</span>
+        <div class="alive-unit">
+          <span class="alive-val">{{ pad2(aliveTime().hours) }}</span>
+          <span class="alive-unit-label">hores</span>
+        </div>
+        <span class="alive-sep">:</span>
+        <div class="alive-unit">
+          <span class="alive-val">{{ pad2(aliveTime().minutes) }}</span>
+          <span class="alive-unit-label">min</span>
+        </div>
+        <span class="alive-sep">:</span>
+        <div class="alive-unit">
+          <span class="alive-val alive-sec">{{ pad2(aliveTime().seconds) }}</span>
+          <span class="alive-unit-label">seg</span>
+        </div>
+      </div>
+      <span class="days-label font-mono">de senyal sense pèrdua de qualitat</span>
+    </div>
+
     <!-- Body text -->
     <div class="encore-body">
       <p>

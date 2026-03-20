@@ -1,12 +1,19 @@
 <section id="mensajes" class="section-full mensajes-bg">
   <div class="screwdriver-wrap" aria-hidden="true">
-    <span class="screw screw-1"><span class="screw-emoji">🔧</span><span class="screwdriver-tooltip">Virginia aguanta aquí</span></span>
-    <span class="screw screw-2"><span class="screw-emoji">🪛</span><span class="screwdriver-tooltip">Aleix on és la màquita???</span></span>
-    <span class="screw screw-3"><span class="screw-emoji">⚙️</span><span class="screwdriver-tooltip">Escotxam!!!</span></span>
-    <span class="screw screw-4"><span class="screw-emoji">🔩</span><span class="screwdriver-tooltip">Virginia aguanta el destornillador</span></span>
-    <span class="screw screw-5"><span class="screw-emoji">🪴</span><span class="screwdriver-tooltip">La plaaaaaaaanta</span></span>
-    <span class="screw screw-6"><span class="screw-emoji">😤</span><span class="screwdriver-tooltip">imbeeeeeciiiiiiiiiil</span></span>
-    <span class="screw screw-7"><span class="screw-emoji">🚀</span><span class="screwdriver-tooltip">Merda ens ho hem deixat a la nau</span></span>
+    <span class="screw screw-1"><span class="screw-emoji">🔧</span><span class="screwdriver-tooltip">Virginia aguanta
+        aquí</span></span>
+    <span class="screw screw-2"><span class="screw-emoji">🪛</span><span class="screwdriver-tooltip">Aleix on és la
+        Makita???</span></span>
+    <span class="screw screw-3"><span class="screw-emoji">⚙️</span><span
+        class="screwdriver-tooltip">Escotxam!!!</span></span>
+    <span class="screw screw-4"><span class="screw-emoji">🔩</span><span class="screwdriver-tooltip">Virginia aguanta el
+        destornillador</span></span>
+    <span class="screw screw-5"><span class="screw-emoji">🪴</span><span class="screwdriver-tooltip">La
+        plaaaaaaaanta</span></span>
+    <span class="screw screw-6"><span class="screw-emoji">😤</span><span
+        class="screwdriver-tooltip">imbeeeeeciiiiiiiiiil</span></span>
+    <span class="screw screw-7"><span class="screw-emoji">🚀</span><span class="screwdriver-tooltip">Merda ens ho hem
+        deixat a la nau</span></span>
   </div>
   <div class="section">
     <div class="section-label">🔒 CONTINGUT SECRET</div>
@@ -14,17 +21,18 @@
 
     <!-- Gift -->
     @if (!giftWatched()) {
-      <div class="gift-wrap">
-        <p class="gift-hint font-mono">✨ OBRIR EL REGAL FENT CLICK ✨</p>
-        <button class="gift-btn" (click)="openGift()" aria-label="Obrir regal">🎁</button>
-      </div>
+    <div class="gift-wrap">
+      <p class="gift-hint font-mono">✨ OBRIR EL REGAL FENT CLICK ✨</p>
+      <button class="gift-btn" (click)="openGift()" aria-label="Obrir regal">🎁</button>
+    </div>
     }
     <!-- Second gift (visible only after first video ends) -->
     @if (giftWatched()) {
-      <div class="gift-wrap">
-        <p class="gift-hint gift-hint-blue font-mono gift-hint-reveal">🎁 SEMBLA QUE TENS UN ALTRE REGAL... 🎁</p>
-        <button class="gift-btn gift-btn-blue gift-drop" (click)="openCongrats()" aria-label="Obrir segon regal">🎁</button>
-      </div>
+    <div class="gift-wrap">
+      <p class="gift-hint gift-hint-blue font-mono gift-hint-reveal">🎁 SEMBLA QUE TENS UN ALTRE REGAL... 🎁</p>
+      <button class="gift-btn gift-btn-blue gift-drop" (click)="openCongrats()"
+        aria-label="Obrir segon regal">🎁</button>
+    </div>
     }
 
 

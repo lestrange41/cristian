@@ -279,7 +279,6 @@ export class TimelineComponent {
         { id: 'aran-7', url: '/photos/aran/WhatsApp Image 2026-03-05 at 20.02.25.jpeg', caption: '' },
         { id: 'aran-8', url: '/photos/aran/WhatsApp Image 2026-03-10 at 21.50.09.jpeg', caption: '' },
         { id: 'aran-9', url: '/photos/aran/WhatsApp Image 2026-03-20 at 00.28.27.jpeg', caption: '' },
-        { id: 'aran-10', url: '/photos/aran/WhatsApp Image 2026-03-20 at 00.28.28.jpeg', caption: '' },
         { id: 'aran-11', url: '/photos/aran/WhatsApp Image 2026-03-20 at 00.28.54.jpeg', caption: '' },
         { id: 'aran-12', url: '/photos/aran/WhatsApp Image 2026-03-20 at 00.31.09.jpeg', caption: '' },
         { id: 'aran-13', url: '/photos/aran/WhatsApp Image 2026-03-20 at 00.34.04.jpeg', caption: '' },

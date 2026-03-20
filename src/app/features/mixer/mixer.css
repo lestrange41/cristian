@@ -124,6 +124,46 @@
 }
 .secret-channel { border-color: rgba(255,153,0,0.3); }
 
+/* Action buttons */
+.mixer-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+.mixer-btn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.15s ease;
+}
+.mixer-btn:active { transform: scale(0.95); }
+.mixer-btn-random {
+  color: #00ccff;
+  border-color: rgba(0,204,255,0.4);
+  background: rgba(0,204,255,0.07);
+}
+.mixer-btn-random:hover { background: rgba(0,204,255,0.15); box-shadow: 0 0 12px rgba(0,204,255,0.3); }
+.mixer-btn-max {
+  color: #ff9900;
+  border-color: rgba(255,153,0,0.4);
+  background: rgba(255,153,0,0.07);
+}
+.mixer-btn-max:hover { background: rgba(255,153,0,0.15); box-shadow: 0 0 12px rgba(255,153,0,0.35); }
+.mixer-btn-reset {
+  color: #ff4444;
+  border-color: rgba(255,68,68,0.4);
+  background: rgba(255,68,68,0.07);
+}
+.mixer-btn-reset:hover { background: rgba(255,68,68,0.15); box-shadow: 0 0 12px rgba(255,68,68,0.3); }
+
+
 .msg-display {
   margin-top: 2rem;
   padding: 1rem 1.5rem;

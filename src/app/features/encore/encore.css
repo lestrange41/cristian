@@ -72,6 +72,57 @@
   box-shadow: 0 0 40px rgba(255,153,0,0.05);
 }
 
+.days-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 auto 2.5rem;
+  animation: fadeInUp 0.8s ease 0.15s both;
+}
+.alive-display {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+.alive-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+.alive-val {
+  font-size: clamp(2.2rem, 5.5vw, 4rem);
+  font-weight: 900;
+  color: var(--color-gold);
+  text-shadow: 0 0 20px rgba(255,153,0,0.5);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.alive-sec {
+  color: #00ff88;
+  text-shadow: 0 0 16px rgba(0,255,136,0.5);
+}
+.alive-unit-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  color: rgba(240,240,248,0.3);
+  text-transform: uppercase;
+}
+.alive-sep {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  color: rgba(255,153,0,0.4);
+  line-height: 1;
+  margin-bottom: 0.9rem;
+}
+.days-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  color: rgba(240,240,248,0.4);
+  text-transform: uppercase;
+}
+
 .encore-actions {
   display: flex;
   gap: 1rem;

@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, signal } from '@angular/core';
 import { ConfettiService } from '../../shared/confetti.service';
 
 type IntroState = 'idle' | 'on-power' | 'on-countdown' | 'off-clip' | 'off-countdown' | 'done';
@@ -10,32 +10,48 @@ type IntroState = 'idle' | 'on-power' | 'on-countdown' | 'off-clip' | 'off-count
   templateUrl: './intro.html',
   styleUrls: ['./intro.css']
 })
-export class IntroComponent {
+export class IntroComponent implements OnInit, OnDestroy {
   private confetti = inject(ConfettiService);
 
   state = signal<IntroState>('idle');
   countdown = signal(3);
 
+  ngOnInit() {
+    document.body.style.overflow = 'hidden';
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }
+
+  ngOnDestroy() {
+    document.body.style.overflow = '';
+  }
+
+  private finishIntro() {
+    document.body.style.overflow = '';
+    this.state.set('done');
+  }
+
   onOn() {
     if (this.state() !== 'idle') return;
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     this.playPowerOnSound();
     this.state.set('on-power');
     setTimeout(() => {
       this.state.set('on-countdown');
       this.runCountdown(() => {
         this.confetti.trigger();
-        setTimeout(() => this.state.set('done'), 600);
+        setTimeout(() => this.finishIntro(), 600);
       });
     }, 1600);
   }
 
   onOff() {
     if (this.state() !== 'idle') return;
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
     this.playClipSound();
     this.state.set('off-clip');
     setTimeout(() => {
       this.state.set('off-countdown');
-      this.runCountdown(() => this.state.set('done'));
+      this.runCountdown(() => this.finishIntro());
     }, 1400);
   }
 
