@@ -171,14 +171,8 @@ export class MixerComponent {
 
   randomizeFaders() {
     this.channels.forEach(ch => { ch.value = Math.floor(Math.random() * 101); });
-    const combos = [
-      '🎲 Combinació aleatòria. El Cristian és imprevisible per definició.',
-      '🎰 Mode "sense cafeïna" activat. Resultats impredictibles.',
-      '🎲 Faders shuffled. Com la seva playlist de Spotify.',
-      '🎰 Mode caos activat. Com el seu cable management.',
-      '🎲 Cristian en format sorpresa. Com sempre.',
-    ];
-    this.currentMsg.set(combos[Math.floor(Math.random() * combos.length)]);
+    const allMsgs = this.channels.flatMap(ch => [ch.msgLow, ch.msgMid, ch.msgHigh]);
+    this.currentMsg.set(allMsgs[Math.floor(Math.random() * allMsgs.length)]);
     const totalAvg = this.channels.reduce((s, c) => s + c.value, 0) / this.channels.length;
     if (totalAvg > 85 && !this.secretUnlocked()) {
       this.secretUnlocked.set(true);
