@@ -24,11 +24,13 @@ interface TimelineEvent {
 export class TimelineComponent {
   private modalService = inject(ModalService);
 
-  cdOpened = signal(false);
+  cdOpened   = signal(false);
+  cdEjecting = signal(false);
 
   playCd() {
     this.playScratch();
-    setTimeout(() => this.cdOpened.set(true), 700);
+    this.cdEjecting.set(true);
+    setTimeout(() => this.cdOpened.set(true), 1300);
   }
 
   private playScratch() {

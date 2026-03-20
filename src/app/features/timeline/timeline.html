@@ -4,23 +4,46 @@
   @if (!cdOpened()) {
   <div class="cd-cover-wrap">
     <div class="cd-section-header">
-      <div class="section-label">🎵 BLANCO Y NEGRO HITS (v.Cristian)</div>
+      <div class="section-label">🎵 L'ÀLBUM</div>
       <h2 class="section-title">L'àlbum d'en Cristian</h2>
     </div>
-    <div class="cd-cover">
-      <div class="cd-cover-bg"></div>
-      <div class="cd-cover-glow"></div>
-      <div class="cd-cover-content">
-        <div class="cd-disc-icon">💿</div>
-        <div class="cd-artist font-display">CRISTIAN</div>
-        <div class="cd-album font-display">4.0</div>
-        <div class="cd-meta font-mono">EDICIÓ LIMITADA · 40 ANYS · 1986–2026</div>
-        <div class="cd-pistes font-mono">— 7 PISTES —</div>
-        <button class="cd-play-btn" (click)="playCd()">
-          <span class="cd-play-arrow">▶</span>
-          <span class="cd-play-text font-mono">REPRODUIR</span>
-        </button>
-        <div class="cd-hint font-mono">· Insereix el CD per reproduir la vida d'en Cristian ·</div>
+
+    <div class="cd-mockup">
+      <!-- Jewel case cover -->
+      <div class="cd-case" [class.ejecting]="cdEjecting()">
+        <!-- Spine esquerra (negre ratllat) -->
+        <div class="cd-case-spine"></div>
+        <!-- Front cover -->
+        <div class="cd-case-front">
+          <div class="cd-case-photo"></div>
+          <div class="cd-case-shade"></div>
+          <div class="cd-case-gloss"></div>
+          <div class="cd-case-content">
+            <div class="cd-case-label font-mono">💿 CRISTIAN REC.</div>
+            <div class="cd-case-artist font-display">CRISTIAN</div>
+            <div class="cd-case-album font-display">4.0</div>
+            <div class="cd-case-meta font-mono">EDICIÓ LIMITADA · 1986–2026</div>
+            <div class="cd-case-tracks font-mono">— 7 PISTES —</div>
+            <button class="cd-play-btn" (click)="playCd()">
+              <span class="cd-play-arrow">▶</span>
+              <span class="cd-play-text font-mono">REPRODUIR</span>
+            </button>
+          </div>
+          <div class="cd-badge">
+            <span class="cd-badge-num font-display">40</span>
+            <span class="cd-badge-label font-mono">ANYS</span>
+          </div>
+          <!-- Clip lateral dret -->
+          <div class="cd-case-clip"></div>
+        </div>
+      </div>
+
+      <!-- The disc -->
+      <div class="cd-disc" [class.ejecting]="cdEjecting()">
+        <div class="cd-disc-photo"></div>
+        <div class="cd-disc-iridescent"></div>
+        <div class="cd-disc-ring"></div>
+        <div class="cd-disc-hole"></div>
       </div>
     </div>
   </div>
